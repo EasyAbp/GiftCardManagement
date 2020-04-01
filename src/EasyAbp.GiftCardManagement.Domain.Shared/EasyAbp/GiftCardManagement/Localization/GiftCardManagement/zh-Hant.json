@@ -1,0 +1,29 @@
+{
+  "culture": "zh-Hant",
+  "texts": {
+    "ManageYourProfile": "管理個人資料",
+    "Menu:GiftCardTemplate": "MenuGiftCardTemplate",
+    "GiftCardTemplate": "GiftCardTemplate",
+    "GiftCardTemplateName": "GiftCardTemplateName",
+    "GiftCardTemplateDisplayName": "GiftCardTemplateDisplayName",
+    "GiftCardTemplateDescription": "GiftCardTemplateDescription",
+    "GiftCardTemplateTenantAllowed": "GiftCardTemplateTenantAllowed",
+    "GiftCardTemplateDuration": "GiftCardTemplateDuration",
+    "CreateGiftCardTemplate": "CreateGiftCardTemplate",
+    "EditGiftCardTemplate": "EditGiftCardTemplate",
+    "GiftCardTemplateDeletionConfirmationMessage": "Are you sure to delete the giftcardtemplate {0}?",
+    "SuccessfullyDeleted": "Successfully deleted",
+    "Menu:GiftCard": "MenuGiftCard",
+    "GiftCard": "GiftCard",
+    "GiftCardTenantId": "GiftCardTenantId",
+    "GiftCardGiftCardTemplateId": "GiftCardGiftCardTemplateId",
+    "GiftCardCode": "GiftCardCode",
+    "GiftCardPassword": "GiftCardPassword",
+    "GiftCardDueTime": "GiftCardDueTime",
+    "GiftCardConsumptionUserId": "GiftCardConsumptionUserId",
+    "GiftCardConsumptionTime": "GiftCardConsumptionTime",
+    "CreateGiftCard": "CreateGiftCard",
+    "EditGiftCard": "EditGiftCard",
+    "GiftCardDeletionConfirmationMessage": "Are you sure to delete the giftcard {0}?"
+  }
+}

@@ -1,0 +1,56 @@
+@page
+@using EasyAbp.GiftCardManagement.Authorization
+@using EasyAbp.GiftCardManagement.Web.Pages.GiftCardTemplates.GiftCardTemplate
+@using Microsoft.AspNetCore.Authorization
+@using Volo.Abp.AspNetCore.Mvc.UI.Layout
+@inherits EasyAbp.GiftCardManagement.Web.Pages.GiftCardManagementPage
+@inject IAuthorizationService Authorization
+@model IndexModel
+@inject IPageLayout PageLayout
+@{
+    PageLayout.Content.Title = L["GiftCardTemplate"].Value;
+    PageLayout.Content.BreadCrumb.Add(L["Menu:GiftCardTemplate"].Value);
+    PageLayout.Content.MenuItemName = "GiftCardTemplate";
+}
+
+@section scripts
+{
+    <abp-script src="/Pages/GiftCardManagement/GiftCardTemplates/GiftCardTemplate/index.js" />
+}
+@section styles
+{
+    <abp-style src="/Pages/GiftCardManagement/GiftCardTemplates/GiftCardTemplate/index.css"/>
+}
+
+<abp-card>
+    <abp-card-header>
+        <abp-row>
+            <abp-column size-md="_6">
+                <abp-card-title>@L["GiftCardTemplate"]</abp-card-title>
+            </abp-column>
+            <abp-column size-md="_6" class="text-right">
+                @if (await Authorization.IsGrantedAsync(GiftCardManagementPermissions.GiftCardTemplates.Create))
+                {
+                    <abp-button id="NewGiftCardTemplateButton"
+                                text="@L["CreateGiftCardTemplate"].Value"
+                                icon="plus"
+                                button-type="Primary"/>
+                }
+            </abp-column>
+        </abp-row>
+    </abp-card-header>
+    <abp-card-body>
+        <abp-table striped-rows="true" id="GiftCardTemplateTable" class="nowrap">
+            <thead>
+            <tr>
+                <th>@L["Actions"]</th>
+                <th>@L["GiftCardTemplateName"]</th>
+                <th>@L["GiftCardTemplateDisplayName"]</th>
+                <th>@L["GiftCardTemplateDescription"]</th>
+                <th>@L["GiftCardTemplateTenantAllowed"]</th>
+                <th>@L["GiftCardTemplateDuration"]</th>
+            </tr>
+            </thead>
+        </abp-table>
+    </abp-card-body>
+</abp-card>

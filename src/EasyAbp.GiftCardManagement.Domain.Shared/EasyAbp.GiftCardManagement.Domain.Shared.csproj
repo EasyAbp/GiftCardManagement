@@ -1,10 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <Import Project="..\..\common.props" />
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <RootNamespace>EasyAbp.GiftCardManagement</RootNamespace>
+    <RootNamespace />
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,8 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Localization\GiftCardManagement\*.json" />
-    <Content Remove="Localization\GiftCardManagement\*.json" />
+    <EmbeddedResource Include="EasyAbp\GiftCardManagement\Localization\GiftCardManagement\*.json" />
+    <Content Remove="EasyAbp\GiftCardManagement\Localization\GiftCardManagement\*.json" />
   </ItemGroup>
 
 </Project>

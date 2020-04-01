@@ -10,6 +10,7 @@ using Swashbuckle.AspNetCore.Swagger;
 using Volo.Abp;
 using Volo.Abp.Account;
 using Volo.Abp.Account.Web;
+using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared;
 using Volo.Abp.AspNetCore.Serilog;
@@ -106,6 +107,8 @@ namespace EasyAbp.GiftCardManagement
             {
                 options.IsEnabled = MultiTenancyConsts.IsEnabled;
             });
+            
+            ConfigureConventionalControllers();
         }
 
         public override void OnApplicationInitialization(ApplicationInitializationContext context)
@@ -152,6 +155,17 @@ namespace EasyAbp.GiftCardManagement
                         .SeedAsync();
                 });
             }
+        }
+        
+        private void ConfigureConventionalControllers()
+        {
+            Configure<AbpAspNetCoreMvcOptions>(options =>
+            {
+                options.ConventionalControllers.Create(typeof(GiftCardManagementApplicationModule).Assembly, setting =>
+                {
+                    setting.RootPath = "giftCard";
+                });
+            });
         }
     }
 }

@@ -14,6 +14,7 @@ using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Swagger;
 using Volo.Abp;
 using Volo.Abp.AspNetCore.MultiTenancy;
+using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy;
 using Volo.Abp.AspNetCore.Serilog;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
@@ -141,6 +142,8 @@ namespace EasyAbp.GiftCardManagement
                         .AllowCredentials();
                 });
             });
+
+            ConfigureConventionalControllers();
         }
 
         public override void OnApplicationInitialization(ApplicationInitializationContext context)
@@ -171,6 +174,17 @@ namespace EasyAbp.GiftCardManagement
             app.UseAuditing();
             app.UseAbpSerilogEnrichers();
             app.UseMvcWithDefaultRouteAndArea();
+        }
+        
+        private void ConfigureConventionalControllers()
+        {
+            Configure<AbpAspNetCoreMvcOptions>(options =>
+            {
+                options.ConventionalControllers.Create(typeof(GiftCardManagementApplicationModule).Assembly, setting =>
+                {
+                    setting.RootPath = "giftCard";
+                });
+            });
         }
     }
 }
