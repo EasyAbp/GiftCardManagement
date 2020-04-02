@@ -17,8 +17,6 @@ namespace EasyAbp.GiftCardManagement.GiftCardTemplates
         
         public virtual bool TenantAllowed { get; protected set; }
         
-        public virtual TimeSpan Duration { get; protected set; }
-
         protected GiftCardTemplate()
         {
         }
@@ -28,15 +26,13 @@ namespace EasyAbp.GiftCardManagement.GiftCardTemplates
             string name,
             string displayName,
             string description,
-            bool tenantAllowed,
-            TimeSpan duration
-        ) :base(id)
+            bool tenantAllowed
+        ) : base(id)
         {
             Name = name;
             DisplayName = displayName;
             Description = description;
             TenantAllowed = tenantAllowed;
-            Duration = duration;
         }
     }
 }

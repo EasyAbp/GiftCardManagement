@@ -15,8 +15,5 @@ namespace EasyAbp.GiftCardManagement.GiftCardTemplates.Dtos
 
         [DisplayName("GiftCardTemplateTenantAllowed")]
         public bool TenantAllowed { get; set; }
-
-        [DisplayName("GiftCardTemplateDuration")]
-        public TimeSpan Duration { get; set; }
     }
 }

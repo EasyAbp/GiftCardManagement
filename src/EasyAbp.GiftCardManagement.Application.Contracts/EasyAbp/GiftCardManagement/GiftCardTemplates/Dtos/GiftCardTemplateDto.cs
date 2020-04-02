@@ -12,7 +12,5 @@ namespace EasyAbp.GiftCardManagement.GiftCardTemplates.Dtos
         public string Description { get; set; }
 
         public bool TenantAllowed { get; set; }
-
-        public TimeSpan Duration { get; set; }
     }
 }

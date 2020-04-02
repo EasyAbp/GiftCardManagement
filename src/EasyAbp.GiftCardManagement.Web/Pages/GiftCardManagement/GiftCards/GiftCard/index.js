@@ -26,6 +26,19 @@ $(function () {
                                     editModal.open({ id: data.record.id });
                                 }
                             },
+                            // Todo: should be removed.
+                            {
+                                text: l('Consume'),
+                                action: function (data) {
+                                    service.consume({
+                                        code: data.record.code,
+                                        password: '123'
+                                    }).then(function () {
+                                        abp.notify.info(l('SuccessfullyDeleted'));
+                                        dataTable.ajax.reload();
+                                    });
+                                }
+                            },
                             {
                                 text: l('Delete'),
                                 confirmMessage: function (data) {
@@ -42,12 +55,12 @@ $(function () {
                         ]
                 }
             },
-            { data: "tenantId" },
             { data: "giftCardTemplateId" },
             { data: "code" },
-            { data: "password" },
+            { data: "passwordHash" },
             { data: "dueTime" },
             { data: "consumptionUserId" },
+            { data: "extraInformation" },
             { data: "consumptionTime" },
         ]
     }));

@@ -45,8 +45,7 @@ $(function () {
             { data: "name" },
             { data: "displayName" },
             { data: "description" },
-            { data: "tenantAllowed" },
-            { data: "duration" },
+            { data: "tenantAllowed" }
         ]
     }));
 

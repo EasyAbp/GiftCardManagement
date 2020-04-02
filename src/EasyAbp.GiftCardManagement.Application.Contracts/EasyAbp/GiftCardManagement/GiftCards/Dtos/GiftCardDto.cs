@@ -9,7 +9,9 @@ namespace EasyAbp.GiftCardManagement.GiftCards.Dtos
 
         public string Code { get; set; }
 
-        public string Password { get; set; }
+        public string PasswordHash { get; set; }
+        
+        public string ExtraInformation { get; set; }
 
         public DateTime DueTime { get; set; }
 

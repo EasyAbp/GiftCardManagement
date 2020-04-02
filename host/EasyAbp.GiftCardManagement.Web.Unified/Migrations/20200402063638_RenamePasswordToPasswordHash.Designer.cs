@@ -4,14 +4,16 @@ using EasyAbp.GiftCardManagement.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EasyAbp.GiftCardManagement.Migrations
 {
     [DbContext(typeof(UnifiedDbContext))]
-    partial class UnifiedDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200402063638_RenamePasswordToPasswordHash")]
+    partial class RenamePasswordToPasswordHash
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,6 +53,9 @@ namespace EasyAbp.GiftCardManagement.Migrations
 
                     b.Property<string>("DisplayName")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<TimeSpan>("Duration")
+                        .HasColumnType("time");
 
                     b.Property<string>("ExtraProperties")
                         .HasColumnName("ExtraProperties")
@@ -119,9 +124,6 @@ namespace EasyAbp.GiftCardManagement.Migrations
 
                     b.Property<DateTime>("DueTime")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("ExtraInformation")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ExtraProperties")
                         .HasColumnName("ExtraProperties")
