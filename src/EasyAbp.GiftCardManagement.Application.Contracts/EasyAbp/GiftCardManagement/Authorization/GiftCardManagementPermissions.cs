@@ -10,6 +10,8 @@ namespace EasyAbp.GiftCardManagement.Authorization
         {
             public const string Default = GroupName + ".GiftCard";
             
+            public const string Consume = Default + ".Consume";
+            
             public const string Create = Default + ".Create";
             
             public const string Update = Default + ".Update";

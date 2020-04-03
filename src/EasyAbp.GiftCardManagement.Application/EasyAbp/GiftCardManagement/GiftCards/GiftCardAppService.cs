@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using EasyAbp.GiftCardManagement.Authorization;
 using EasyAbp.GiftCardManagement.GiftCards.Dtos;
 using EasyAbp.GiftCardManagement.GiftCardTemplates;
+using Microsoft.AspNetCore.Authorization;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.EventBus.Distributed;
@@ -21,17 +22,24 @@ namespace EasyAbp.GiftCardManagement.GiftCards
         protected override string GetListPolicyName { get; set; } = GiftCardManagementPermissions.GiftCards.Default;
 
         private readonly IGiftCardManager _giftCardManager;
+        private readonly IGiftCardTemplateRepository _giftCardTemplateRepository;
 
         public GiftCardAppService(
             IGiftCardManager giftCardManager,
+            IGiftCardTemplateRepository giftCardTemplateRepository,
             IGiftCardRepository repository) : base(repository)
         {
             _giftCardManager = giftCardManager;
+            _giftCardTemplateRepository = giftCardTemplateRepository;
         }
 
         public virtual async Task ConsumeAsync(ConsumeGiftCardDto input)
         {
             var giftCard = await _giftCardManager.GetUsableAsync(input.Code, input.Password);
+
+            var template = await _giftCardTemplateRepository.GetAsync(giftCard.GiftCardTemplateId);
+
+            await AuthorizationService.CheckAsync(template, GiftCardManagementPermissions.GiftCards.Consume);
 
             await _giftCardManager.ConsumeAsync(giftCard, CurrentUser.Id, input.ExtraProperties);
         }

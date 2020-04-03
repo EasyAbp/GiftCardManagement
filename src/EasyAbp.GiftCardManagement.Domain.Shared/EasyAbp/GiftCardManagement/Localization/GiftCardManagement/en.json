@@ -26,6 +26,8 @@
     "GiftCardExtraProperties": "GiftCardExtraProperties",
     "CreateGiftCard": "CreateGiftCard",
     "EditGiftCard": "EditGiftCard",
-    "GiftCardDeletionConfirmationMessage": "Are you sure to delete the giftcard {0}?"
+    "GiftCardDeletionConfirmationMessage": "Are you sure to delete the giftcard {0}?",
+    "Permission:GiftCard": "Permission:GiftCard",
+    "Permission:Consume": "Permission:Consume"
   }
 }

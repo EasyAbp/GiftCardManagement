@@ -18,7 +18,6 @@ namespace EasyAbp.GiftCardManagement.GiftCardTemplates.Dtos
         [DisplayName("GiftCardTemplateDescription")]
         public string Description { get; set; }
 
-
         [DisplayName("GiftCardTemplateTenantAllowed")]
         public bool TenantAllowed { get; set; }
     
