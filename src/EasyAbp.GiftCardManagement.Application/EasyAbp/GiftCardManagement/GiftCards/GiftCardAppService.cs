@@ -39,7 +39,10 @@ namespace EasyAbp.GiftCardManagement.GiftCards
 
             var template = await _giftCardTemplateRepository.GetAsync(giftCard.GiftCardTemplateId);
 
-            await AuthorizationService.CheckAsync(template, GiftCardManagementPermissions.GiftCards.Consume);
+            if (!template.AnonymousConsumptionAllowed)
+            {
+                await AuthorizationService.CheckAsync(GiftCardManagementPermissions.GiftCards.Consume);
+            }
 
             await _giftCardManager.ConsumeAsync(giftCard, CurrentUser.Id, input.ExtraProperties);
         }
