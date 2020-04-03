@@ -32,7 +32,7 @@ $(function () {
                                 action: function (data) {
                                     service.consume({
                                         code: data.record.code,
-                                        password: '123'
+                                        password: '123456'
                                     }).then(function () {
                                         abp.notify.info(l('SuccessfullyDeleted'));
                                         dataTable.ajax.reload();

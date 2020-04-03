@@ -54,6 +54,12 @@ namespace EasyAbp.GiftCardManagement.GiftCards
             ConsumptionUserId = userId;
             
             ExtraProperties = new Dictionary<string, object>();
+
+            if (extraProperties.IsNullOrEmpty())
+            {
+                return;
+            }
+            
             foreach (var extraProperty in extraProperties)
             {
                 this.SetProperty(extraProperty.Key, extraProperty.Value);
