@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using EasyAbp.GiftCardManagement.GiftCardTemplates;
 using Volo.Abp.Domain.Entities.Events;
 using Volo.Abp.Domain.Services;
 using Volo.Abp.EventBus.Distributed;
@@ -14,6 +15,7 @@ namespace EasyAbp.GiftCardManagement.GiftCards
         private readonly IClock _clock;
         private readonly IDistributedEventBus _distributedEventBus;
         private readonly IUnitOfWorkManager _unitOfWorkManager;
+        private readonly IGiftCardTemplateRepository _giftCardTemplateRepository;
         private readonly IGiftCardRepository _repository;
         private readonly IGiftCardPasswordHashProvider _giftCardPasswordHashProvider;
 
@@ -21,12 +23,14 @@ namespace EasyAbp.GiftCardManagement.GiftCards
             IClock clock,
             IDistributedEventBus distributedEventBus,
             IUnitOfWorkManager unitOfWorkManager,
+            IGiftCardTemplateRepository giftCardTemplateRepository,
             IGiftCardRepository repository,
             IGiftCardPasswordHashProvider giftCardPasswordHashProvider)
         {
             _clock = clock;
             _distributedEventBus = distributedEventBus;
             _unitOfWorkManager = unitOfWorkManager;
+            _giftCardTemplateRepository = giftCardTemplateRepository;
             _repository = repository;
             _giftCardPasswordHashProvider = giftCardPasswordHashProvider;
         }
@@ -42,6 +46,8 @@ namespace EasyAbp.GiftCardManagement.GiftCards
 
         public async Task ConsumeAsync(GiftCard giftCard, Guid? userId, Dictionary<string, object> extraProperties = null)
         {
+            var template = await _giftCardTemplateRepository.GetAsync(giftCard.GiftCardTemplateId);
+            
             giftCard.Consume(_clock, userId, extraProperties);
 
             await _repository.UpdateAsync(giftCard, true);
@@ -49,6 +55,7 @@ namespace EasyAbp.GiftCardManagement.GiftCards
             _unitOfWorkManager.Current.OnCompleted(async () => await _distributedEventBus.PublishAsync(
                 new GiftCardConsumedEto
                 {
+                    GiftCardTemplateName = template.Name,
                     GiftCardId = giftCard.Id,
                     GiftCardCode = giftCard.Code
                 }));
