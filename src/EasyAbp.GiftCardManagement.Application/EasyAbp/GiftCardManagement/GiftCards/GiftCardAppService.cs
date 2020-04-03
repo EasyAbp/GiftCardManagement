@@ -20,21 +20,12 @@ namespace EasyAbp.GiftCardManagement.GiftCards
         protected override string GetPolicyName { get; set; } = GiftCardManagementPermissions.GiftCards.Default;
         protected override string GetListPolicyName { get; set; } = GiftCardManagementPermissions.GiftCards.Default;
 
-        private readonly IUnitOfWorkManager _unitOfWorkManager;
-        private readonly ILocalEventBus _localEventBus;
-        private readonly IDistributedEventBus _distributedEventBus;
         private readonly IGiftCardManager _giftCardManager;
 
         public GiftCardAppService(
-            IUnitOfWorkManager unitOfWorkManager,
-            ILocalEventBus localEventBus,
-            IDistributedEventBus distributedEventBus,
             IGiftCardManager giftCardManager,
             IGiftCardRepository repository) : base(repository)
         {
-            _unitOfWorkManager = unitOfWorkManager;
-            _localEventBus = localEventBus;
-            _distributedEventBus = distributedEventBus;
             _giftCardManager = giftCardManager;
         }
 
@@ -43,32 +34,12 @@ namespace EasyAbp.GiftCardManagement.GiftCards
             await _giftCardManager.GetUsableAsync(input.Code, input.Password);
         }
 
-        [UnitOfWork(IsDisabled = true)]
         public virtual async Task ConsumeAsync(ConsumeGiftCardDto input)
         {
-            using var uow = _unitOfWorkManager.Begin(true, true);
-            
             var giftCard = await _giftCardManager.GetUsableAsync(input.Code, input.Password);
 
-            await _giftCardManager.ConsumeAsync(giftCard, CurrentUser.Id, input.ExtraInformation);
+            await _giftCardManager.ConsumeAsync(giftCard, CurrentUser.Id, input.ExtraProperties);
 
-            await uow.CompleteAsync();
-
-            await PublishEventAsync(giftCard.Code, CurrentUser.Id, input.ExtraInformation);
-        }
-
-        protected virtual async Task PublishEventAsync(string giftCardCode, Guid? userId, string extraInformation)
-        {
-            var eto = new GiftCardConsumedEto
-            {
-                Code = giftCardCode,
-                UserId = userId,
-                ExtraInformation = extraInformation
-            };
-            
-            await _localEventBus.PublishAsync(eto);
-            
-            await _distributedEventBus.PublishAsync(eto);
         }
     }
 }

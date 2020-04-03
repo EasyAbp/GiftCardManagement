@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace EasyAbp.GiftCardManagement.GiftCards
@@ -7,6 +8,6 @@ namespace EasyAbp.GiftCardManagement.GiftCards
     {
         Task<GiftCard> GetUsableAsync(string code, string password);
         
-        Task ConsumeAsync(GiftCard giftCard, Guid? userId, string extraInformation = null);
+        Task ConsumeAsync(GiftCard giftCard, Guid? userId, Dictionary<string, object> extraProperties = null);
     }
 }

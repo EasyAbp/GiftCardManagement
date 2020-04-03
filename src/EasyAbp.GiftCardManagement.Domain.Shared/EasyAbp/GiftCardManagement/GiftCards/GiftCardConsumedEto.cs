@@ -5,10 +5,8 @@ namespace EasyAbp.GiftCardManagement.GiftCards
     [Serializable]
     public class GiftCardConsumedEto
     {
-        public string Code { get; set; }
+        public Guid GiftCardId { get; set; }
         
-        public Guid? UserId { get; set; }
-        
-        public string ExtraInformation { get; set; }
+        public string GiftCardCode { get; set; }
     }
 }
