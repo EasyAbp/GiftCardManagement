@@ -29,11 +29,6 @@ namespace EasyAbp.GiftCardManagement.GiftCards
             _giftCardManager = giftCardManager;
         }
 
-        public virtual async Task PreConsumeAsync(ConsumeGiftCardDto input)
-        {
-            await _giftCardManager.GetUsableAsync(input.Code, input.Password);
-        }
-
         public virtual async Task ConsumeAsync(ConsumeGiftCardDto input)
         {
             var giftCard = await _giftCardManager.GetUsableAsync(input.Code, input.Password);

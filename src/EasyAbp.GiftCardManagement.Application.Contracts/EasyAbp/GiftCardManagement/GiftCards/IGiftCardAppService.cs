@@ -14,8 +14,6 @@ namespace EasyAbp.GiftCardManagement.GiftCards
             CreateUpdateGiftCardDto,
             CreateUpdateGiftCardDto>
     {
-        Task PreConsumeAsync(ConsumeGiftCardDto input);
-        
         Task ConsumeAsync(ConsumeGiftCardDto input);
     }
 }
