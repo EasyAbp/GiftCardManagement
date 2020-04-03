@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+
 namespace EasyAbp.GiftCardManagement.GiftCards.Dtos
 {
     public class CreateUpdateGiftCardDto
@@ -8,9 +10,11 @@ namespace EasyAbp.GiftCardManagement.GiftCards.Dtos
         [DisplayName("GiftCardGiftCardTemplateId")]
         public Guid GiftCardTemplateId { get; set; }
 
+        [Required]
         [DisplayName("GiftCardCode")]
         public string Code { get; set; }
         
+        [Required]
         [DisplayName("GiftCardPasswordHash")]
         public string PasswordHash { get; set; }
 

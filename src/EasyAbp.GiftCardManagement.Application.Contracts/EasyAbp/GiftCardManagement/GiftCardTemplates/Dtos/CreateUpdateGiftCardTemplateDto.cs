@@ -1,13 +1,17 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+
 namespace EasyAbp.GiftCardManagement.GiftCardTemplates.Dtos
 {
     public class CreateUpdateGiftCardTemplateDto
     {
+        [Required]
         [DisplayName("GiftCardTemplateName")]
         public string Name { get; set; }
 
+        [Required]
         [DisplayName("GiftCardTemplateDisplayName")]
         public string DisplayName { get; set; }
 
