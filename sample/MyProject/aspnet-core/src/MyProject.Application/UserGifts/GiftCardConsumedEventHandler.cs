@@ -4,12 +4,13 @@ using System.Threading.Tasks;
 using EasyAbp.GiftCardManagement.GiftCards;
 using EasyAbp.GiftCardManagement.GiftCardTemplates;
 using MyProject.Gifts;
+using Volo.Abp.DependencyInjection;
 using Volo.Abp.EventBus.Distributed;
 using Volo.Abp.Guids;
 
 namespace MyProject.UserGifts
 {
-    public class GiftCardConsumedEventHandler : IDistributedEventHandler<GiftCardConsumedEto>
+    public class GiftCardConsumedEventHandler : IDistributedEventHandler<GiftCardConsumedEto>, ITransientDependency
     {
         private readonly IGuidGenerator _guidGenerator;
         private readonly IGiftAppService _giftAppService;
