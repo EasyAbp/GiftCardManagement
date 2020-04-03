@@ -1,0 +1,22 @@
+{
+  "culture": "en",
+  "texts": {
+    "Menu:Home": "Home",
+    "Welcome": "Welcome",
+    "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the ABP framework. For more information, visit abp.io.",
+    "Menu:Gift": "MenuGift",
+    "Gift": "Gift",
+    "GiftName": "GiftName",
+    "CreateGift": "CreateGift",
+    "EditGift": "EditGift",
+    "GiftDeletionConfirmationMessage": "Are you sure to delete the gift {0}?",
+    "SuccessfullyDeleted": "Successfully deleted",
+    "Menu:UserGift": "MenuUserGift",
+    "UserGift": "UserGift",
+    "UserGiftUserId": "UserGiftUserId",
+    "UserGiftGiftId": "UserGiftGiftId",
+    "CreateUserGift": "CreateUserGift",
+    "EditUserGift": "EditUserGift",
+    "UserGiftDeletionConfirmationMessage": "Are you sure to delete the usergift {0}?"
+  }
+}

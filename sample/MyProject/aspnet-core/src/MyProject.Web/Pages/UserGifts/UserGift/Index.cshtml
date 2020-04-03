@@ -1,0 +1,47 @@
+@page
+@using MyProject.Web.Pages.UserGifts.UserGift
+@using Volo.Abp.AspNetCore.Mvc.UI.Layout
+@inherits MyProject.Web.Pages.MyProjectPage
+@model IndexModel
+@inject IPageLayout PageLayout
+@{
+    PageLayout.Content.Title = L["UserGift"].Value;
+    PageLayout.Content.BreadCrumb.Add(L["Menu:UserGift"].Value);
+    PageLayout.Content.MenuItemName = "UserGift";
+}
+
+@section scripts
+{
+    <abp-script src="/Pages/UserGifts/UserGift/index.js" />
+}
+@section styles
+{
+    <abp-style src="/Pages/UserGifts/UserGift/index.css"/>
+}
+
+<abp-card>
+    <abp-card-header>
+        <abp-row>
+            <abp-column size-md="_6">
+                <abp-card-title>@L["UserGift"]</abp-card-title>
+            </abp-column>
+            <abp-column size-md="_6" class="text-right">
+                <abp-button id="NewUserGiftButton"
+                            text="@L["CreateUserGift"].Value"
+                            icon="plus"
+                            button-type="Primary" />
+            </abp-column>
+        </abp-row>
+    </abp-card-header>
+    <abp-card-body>
+        <abp-table striped-rows="true" id="UserGiftTable" class="nowrap">
+            <thead>
+            <tr>
+                <th>@L["Actions"]</th>
+                <th>@L["UserGiftUserId"]</th>
+                <th>@L["UserGiftGiftId"]</th>
+            </tr>
+            </thead>
+        </abp-table>
+    </abp-card-body>
+</abp-card>

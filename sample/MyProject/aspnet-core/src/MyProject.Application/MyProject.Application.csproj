@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>MyProject</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MyProject.Domain\MyProject.Domain.csproj" />
+    <ProjectReference Include="..\MyProject.Application.Contracts\MyProject.Application.Contracts.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\src\EasyAbp.GiftCardManagement.Application\EasyAbp.GiftCardManagement.Application.csproj" />
+    <PackageReference Include="Volo.Abp.Account.Application" Version="2.3.0" />
+    <PackageReference Include="Volo.Abp.Identity.Application" Version="2.3.0" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.Application" Version="2.3.0" />
+    <PackageReference Include="Volo.Abp.TenantManagement.Application" Version="2.3.0" />
+    <PackageReference Include="Volo.Abp.FeatureManagement.Application" Version="2.3.0" />
+  </ItemGroup>
+
+</Project>

@@ -36,9 +36,7 @@ namespace EasyAbp.GiftCardManagement.GiftCards
             Guid giftCardTemplateId,
             [NotNull] string code,
             [NotNull] string passwordHash,
-            DateTime? expiration,
-            Guid? consumptionUserId,
-            DateTime? consumptionTime
+            DateTime? expiration
         ) : base(id)
         {
             TenantId = tenantId;
@@ -46,8 +44,6 @@ namespace EasyAbp.GiftCardManagement.GiftCards
             Code = code;
             PasswordHash = passwordHash;
             Expiration = expiration;
-            ConsumptionUserId = consumptionUserId;
-            ConsumptionTime = consumptionTime;
         }
 
         public void Consume(IClock clock, Guid? userId, Dictionary<string, object> extraProperties = null)

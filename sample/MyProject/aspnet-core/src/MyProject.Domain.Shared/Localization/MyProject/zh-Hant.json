@@ -1,0 +1,22 @@
+{
+  "culture": "zh-Hant",
+  "texts": {
+    "Menu:Home": "首頁",
+    "Welcome": "歡迎",
+    "LongWelcomeMessage": "歡迎來到此應用程式. 這是一個基於ABP框架的起始專案. 有關更多訊息, 請瀏覽 abp.io.",
+    "Menu:Gift": "MenuGift",
+    "Gift": "Gift",
+    "GiftName": "GiftName",
+    "CreateGift": "CreateGift",
+    "EditGift": "EditGift",
+    "GiftDeletionConfirmationMessage": "Are you sure to delete the gift {0}?",
+    "SuccessfullyDeleted": "Successfully deleted",
+    "Menu:UserGift": "MenuUserGift",
+    "UserGift": "UserGift",
+    "UserGiftUserId": "UserGiftUserId",
+    "UserGiftGiftId": "UserGiftGiftId",
+    "CreateUserGift": "CreateUserGift",
+    "EditUserGift": "EditUserGift",
+    "UserGiftDeletionConfirmationMessage": "Are you sure to delete the usergift {0}?"
+  }
+}
