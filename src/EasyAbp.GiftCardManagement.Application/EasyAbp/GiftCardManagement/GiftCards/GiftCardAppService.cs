@@ -34,7 +34,6 @@ namespace EasyAbp.GiftCardManagement.GiftCards
             var giftCard = await _giftCardManager.GetUsableAsync(input.Code, input.Password);
 
             await _giftCardManager.ConsumeAsync(giftCard, CurrentUser.Id, input.ExtraProperties);
-
         }
     }
 }

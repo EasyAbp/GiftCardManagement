@@ -12,7 +12,7 @@ namespace EasyAbp.GiftCardManagement.GiftCards.Dtos
 
         public string PasswordHash { get; set; }
 
-        public DateTime Expiration { get; set; }
+        public DateTime? Expiration { get; set; }
 
         public Guid? ConsumptionUserId { get; set; }
 

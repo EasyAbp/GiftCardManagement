@@ -20,7 +20,7 @@ namespace EasyAbp.GiftCardManagement.GiftCards
         [NotNull]
         public virtual string PasswordHash { get; protected set; }
         
-        public virtual DateTime Expiration { get; protected set; }
+        public virtual DateTime? Expiration { get; protected set; }
         
         public virtual Guid? ConsumptionUserId { get; protected set; }
         
@@ -36,7 +36,7 @@ namespace EasyAbp.GiftCardManagement.GiftCards
             Guid giftCardTemplateId,
             [NotNull] string code,
             [NotNull] string passwordHash,
-            DateTime expiration,
+            DateTime? expiration,
             Guid? consumptionUserId,
             DateTime? consumptionTime
         ) : base(id)
@@ -71,7 +71,7 @@ namespace EasyAbp.GiftCardManagement.GiftCards
                 throw new GiftCardAlreadyConsumedException(Code);
             }
             
-            if (Expiration < clock.Now)
+            if (Expiration.HasValue && Expiration.Value < clock.Now)
             {
                 throw new GiftCardOverdueException(Code);
             }

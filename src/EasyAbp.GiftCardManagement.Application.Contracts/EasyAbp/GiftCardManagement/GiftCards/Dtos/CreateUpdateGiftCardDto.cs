@@ -15,7 +15,7 @@ namespace EasyAbp.GiftCardManagement.GiftCards.Dtos
         public string PasswordHash { get; set; }
 
         [DisplayName("GiftCardExpiration")]
-        public DateTime Expiration { get; set; }
+        public DateTime? Expiration { get; set; }
 
         [DisplayName("GiftCardConsumptionUserId")]
         public Guid? ConsumptionUserId { get; set; }
