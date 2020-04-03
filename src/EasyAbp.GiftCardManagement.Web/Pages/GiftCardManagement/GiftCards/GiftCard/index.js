@@ -58,10 +58,10 @@ $(function () {
             { data: "giftCardTemplateId" },
             { data: "code" },
             { data: "passwordHash" },
-            { data: "dueTime" },
+            { data: "expiration" },
             { data: "consumptionUserId" },
-            { data: "extraInformation" },
             { data: "consumptionTime" },
+            { data: "extraProperties" }
         ]
     }));
 

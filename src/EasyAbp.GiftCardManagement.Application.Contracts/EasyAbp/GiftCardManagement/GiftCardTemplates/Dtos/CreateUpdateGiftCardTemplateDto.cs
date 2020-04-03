@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 namespace EasyAbp.GiftCardManagement.GiftCardTemplates.Dtos
 {
@@ -15,5 +16,9 @@ namespace EasyAbp.GiftCardManagement.GiftCardTemplates.Dtos
 
         [DisplayName("GiftCardTemplateTenantAllowed")]
         public bool TenantAllowed { get; set; }
+        
+        [DisplayName("GiftCardTemplateExtraProperties")]
+        public Dictionary<string, object> ExtraProperties { get; set; }
+
     }
 }

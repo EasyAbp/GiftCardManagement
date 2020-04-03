@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Volo.Abp.Application.Dtos;
 
 namespace EasyAbp.GiftCardManagement.GiftCards.Dtos
@@ -10,13 +11,13 @@ namespace EasyAbp.GiftCardManagement.GiftCards.Dtos
         public string Code { get; set; }
 
         public string PasswordHash { get; set; }
-        
-        public string ExtraInformation { get; set; }
 
-        public DateTime DueTime { get; set; }
+        public DateTime Expiration { get; set; }
 
         public Guid? ConsumptionUserId { get; set; }
 
         public DateTime? ConsumptionTime { get; set; }
+        
+        public Dictionary<string, object> ExtraProperties { get; set; }
     }
 }

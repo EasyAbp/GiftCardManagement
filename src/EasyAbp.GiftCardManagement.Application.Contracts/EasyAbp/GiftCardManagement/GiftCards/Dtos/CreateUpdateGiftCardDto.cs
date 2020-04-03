@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 namespace EasyAbp.GiftCardManagement.GiftCards.Dtos
 {
@@ -10,14 +11,11 @@ namespace EasyAbp.GiftCardManagement.GiftCards.Dtos
         [DisplayName("GiftCardCode")]
         public string Code { get; set; }
         
-        [DisplayName("GiftCardExtraInformation")]
-        public string ExtraInformation { get; set; }
-
         [DisplayName("GiftCardPasswordHash")]
         public string PasswordHash { get; set; }
 
-        [DisplayName("GiftCardDueTime")]
-        public DateTime DueTime { get; set; }
+        [DisplayName("GiftCardExpiration")]
+        public DateTime Expiration { get; set; }
 
         [DisplayName("GiftCardConsumptionUserId")]
         public Guid? ConsumptionUserId { get; set; }

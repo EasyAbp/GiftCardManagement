@@ -20,10 +20,7 @@ namespace EasyAbp.GiftCardManagement.GiftCards
         [NotNull]
         public virtual string PasswordHash { get; protected set; }
         
-        [CanBeNull]
-        public virtual string ExtraInformation { get; protected set; }
-        
-        public virtual DateTime DueTime { get; protected set; }
+        public virtual DateTime Expiration { get; protected set; }
         
         public virtual Guid? ConsumptionUserId { get; protected set; }
         
@@ -39,8 +36,7 @@ namespace EasyAbp.GiftCardManagement.GiftCards
             Guid giftCardTemplateId,
             [NotNull] string code,
             [NotNull] string passwordHash,
-            [CanBeNull] string extraInformation,
-            DateTime dueTime,
+            DateTime expiration,
             Guid? consumptionUserId,
             DateTime? consumptionTime
         ) : base(id)
@@ -49,19 +45,23 @@ namespace EasyAbp.GiftCardManagement.GiftCards
             GiftCardTemplateId = giftCardTemplateId;
             Code = code;
             PasswordHash = passwordHash;
-            ExtraInformation = extraInformation;
-            DueTime = dueTime;
+            Expiration = expiration;
             ConsumptionUserId = consumptionUserId;
             ConsumptionTime = consumptionTime;
         }
 
-        public void Consume(IClock clock, Guid? userId, string extraInformation = null)
+        public void Consume(IClock clock, Guid? userId, Dictionary<string, object> extraProperties = null)
         {
             CheckUsable(clock);
             
             ConsumptionTime = clock.Now;
             ConsumptionUserId = userId;
-            ExtraInformation = extraInformation;
+            
+            ExtraProperties = new Dictionary<string, object>();
+            foreach (var extraProperty in extraProperties)
+            {
+                this.SetProperty(extraProperty.Key, extraProperty.Value);
+            }
         }
 
         public void CheckUsable(IClock clock)
@@ -71,7 +71,7 @@ namespace EasyAbp.GiftCardManagement.GiftCards
                 throw new GiftCardAlreadyConsumedException(Code);
             }
             
-            if (DueTime < clock.Now)
+            if (Expiration < clock.Now)
             {
                 throw new GiftCardOverdueException(Code);
             }
