@@ -8,6 +8,7 @@
     "GiftCardTemplateDisplayName": "GiftCardTemplateDisplayName",
     "GiftCardTemplateDescription": "GiftCardTemplateDescription",
     "GiftCardTemplateTenantAllowed": "GiftCardTemplateTenantAllowed",
+    "GiftCardTemplateAnonymousConsumptionAllowed": "GiftCardTemplateAnonymousConsumptionAllowed",
     "GiftCardTemplateExtraProperties": "GiftCardTemplateExtraProperties",
     "GiftCardTemplateDuration": "GiftCardTemplateDuration",
     "CreateGiftCardTemplate": "CreateGiftCardTemplate",

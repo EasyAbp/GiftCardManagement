@@ -17,22 +17,26 @@ namespace EasyAbp.GiftCardManagement.GiftCardTemplates
         
         public virtual bool TenantAllowed { get; protected set; }
         
+        public virtual bool AnonymousConsumptionAllowed { get; protected set; }
+        
         protected GiftCardTemplate()
         {
         }
 
         public GiftCardTemplate(
             Guid id,
-            string name,
-            string displayName,
-            string description,
-            bool tenantAllowed
+            [NotNull] string name,
+            [NotNull] string displayName,
+            [CanBeNull] string description,
+            bool tenantAllowed,
+            bool anonymousConsumptionAllowed
         ) : base(id)
         {
             Name = name;
             DisplayName = displayName;
             Description = description;
             TenantAllowed = tenantAllowed;
+            AnonymousConsumptionAllowed = anonymousConsumptionAllowed;
         }
     }
 }

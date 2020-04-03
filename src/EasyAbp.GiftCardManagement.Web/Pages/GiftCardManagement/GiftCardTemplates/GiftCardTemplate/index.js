@@ -46,6 +46,7 @@ $(function () {
             { data: "displayName" },
             { data: "description" },
             { data: "tenantAllowed" },
+            { data: "anonymousConsumptionAllowed" },
             { data: "extraProperties" }
         ]
     }));

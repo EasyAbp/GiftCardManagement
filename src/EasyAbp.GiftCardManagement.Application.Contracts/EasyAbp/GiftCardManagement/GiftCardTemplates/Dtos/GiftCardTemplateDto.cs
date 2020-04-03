@@ -14,6 +14,8 @@ namespace EasyAbp.GiftCardManagement.GiftCardTemplates.Dtos
 
         public bool TenantAllowed { get; set; }
         
+        public bool AnonymousConsumptionAllowed { get; set; }
+        
         public Dictionary<string, object> ExtraProperties { get; set; }
     }
 }
