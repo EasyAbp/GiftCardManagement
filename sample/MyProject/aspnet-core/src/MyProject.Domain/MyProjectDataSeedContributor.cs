@@ -24,9 +24,9 @@ namespace MyProject
         [UnitOfWork]
         public async Task SeedAsync(DataSeedContext context)
         {
-            await _giftSampleDataSeeder.SeedAsync(context);
+            await _giftSampleDataSeeder.SeedAsync();
 
-            await _giftCardSampleDataSeeder.SeedAsync(context);
+            await _giftCardSampleDataSeeder.SeedAsync();
         }
     }
 }

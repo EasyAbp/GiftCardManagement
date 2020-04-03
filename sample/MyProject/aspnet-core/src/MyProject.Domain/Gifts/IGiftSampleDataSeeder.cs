@@ -1,9 +1,10 @@
-﻿using Volo.Abp.Data;
+﻿using System.Threading.Tasks;
+using Volo.Abp.Data;
 
 namespace MyProject.Gifts
 {
-    public interface IGiftSampleDataSeeder : IDataSeeder
+    public interface IGiftSampleDataSeeder
     {
-        
+        Task SeedAsync();
     }
 }

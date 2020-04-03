@@ -27,7 +27,7 @@ namespace MyProject.GiftCards
             _giftCardRepository = giftCardRepository;
         }
         
-        public async Task SeedAsync(DataSeedContext context)
+        public async Task SeedAsync()
         {
             if (await _giftCardTemplateRepository.GetCountAsync() == 0)
             {

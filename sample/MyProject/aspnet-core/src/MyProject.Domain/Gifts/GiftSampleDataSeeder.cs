@@ -18,7 +18,7 @@ namespace MyProject.Gifts
             _giftRepository = giftRepository;
         }
         
-        public async Task SeedAsync(DataSeedContext context)
+        public async Task SeedAsync()
         {
             if (await _giftRepository.GetCountAsync() == 0)
             {
