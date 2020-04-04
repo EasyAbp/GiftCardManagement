@@ -14,21 +14,15 @@ namespace MyProject.UserGifts
     {
         private readonly IGuidGenerator _guidGenerator;
         private readonly IGiftAppService _giftAppService;
-        private readonly IGiftCardTemplateAppService _giftCardTemplateAppService;
-        private readonly IGiftCardAppService _giftCardAppService;
         private readonly IUserGiftRepository _userGiftRepository;
 
         public GiftCardConsumedEventHandler(
             IGuidGenerator guidGenerator,
             IGiftAppService giftAppService,
-            IGiftCardTemplateAppService giftCardTemplateAppService,
-            IGiftCardAppService giftCardAppService,
             IUserGiftRepository userGiftRepository)
         {
             _guidGenerator = guidGenerator;
             _giftAppService = giftAppService;
-            _giftCardTemplateAppService = giftCardTemplateAppService;
-            _giftCardAppService = giftCardAppService;
             _userGiftRepository = userGiftRepository;
         }
         
@@ -39,26 +33,22 @@ namespace MyProject.UserGifts
                 return;
             }
             
-            var giftCard = await _giftCardAppService.GetAsync(eventData.GiftCardId);
-
-            var giftCardTemplate = await _giftCardTemplateAppService.GetAsync(giftCard.GiftCardTemplateId);
-
-            var giftName = giftCardTemplate.ExtraProperties.GetOrDefault("GiftName").As<string>();
+            var giftName = eventData.GiftCardTemplateExtraProperties.GetOrDefault("GiftName").As<string>();
             
             var gift = await _giftAppService.GetByNameAsync(giftName);
 
             if (giftName.IsNullOrWhiteSpace())
             {
-                throw new GiftCardGiftNameNotDefinedException(giftCardTemplate.Id);
+                throw new GiftCardGiftNameNotDefinedException(eventData.GiftCardTemplateName);
             }
 
-            if (!giftCard.ConsumptionUserId.HasValue)
+            if (!eventData.ConsumptionUserId.HasValue)
             {
-                throw new GiftCardConsumptionUserIdEmptyException(giftCard.Id);
+                throw new GiftCardConsumptionUserIdEmptyException(eventData.GiftCardCode);
             }
 
             await _userGiftRepository.InsertAsync(new UserGift(_guidGenerator.Create(),
-                giftCard.ConsumptionUserId.Value, gift.Id));
+                eventData.ConsumptionUserId.Value, gift.Id));
         }
     }
 }

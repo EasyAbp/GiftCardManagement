@@ -56,8 +56,10 @@ namespace EasyAbp.GiftCardManagement.GiftCards
                 new GiftCardConsumedEto
                 {
                     GiftCardTemplateName = template.Name,
-                    GiftCardId = giftCard.Id,
-                    GiftCardCode = giftCard.Code
+                    GiftCardTemplateExtraProperties = template.ExtraProperties,
+                    GiftCardCode = giftCard.Code,
+                    GiftCardExtraProperties = giftCard.ExtraProperties,
+                    ConsumptionUserId = userId
                 }));
         }
     }

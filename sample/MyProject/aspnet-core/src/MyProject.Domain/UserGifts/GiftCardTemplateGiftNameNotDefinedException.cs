@@ -5,8 +5,8 @@ namespace MyProject.UserGifts
 {
     public class GiftCardGiftNameNotDefinedException : BusinessException
     {
-        public GiftCardGiftNameNotDefinedException(Guid giftCardTemplateId) : base(
-            message: $"The gift card ({giftCardTemplateId}) template has no defined gift name property.")
+        public GiftCardGiftNameNotDefinedException(string giftCardTemplateName) : base(
+            message: $"The gift card ({giftCardTemplateName}) template has no defined gift name property.")
         {
 
         }
