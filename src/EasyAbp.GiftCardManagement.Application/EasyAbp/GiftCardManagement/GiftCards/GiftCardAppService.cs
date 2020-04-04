@@ -33,6 +33,18 @@ namespace EasyAbp.GiftCardManagement.GiftCards
             _giftCardTemplateRepository = giftCardTemplateRepository;
         }
 
+        public override async Task<GiftCardDto> GetAsync(Guid id)
+        {
+            var giftCard = await GetEntityByIdAsync(id);
+
+            if (!giftCard.ConsumptionUserId.HasValue || !giftCard.ConsumptionUserId.Value.Equals(CurrentUser.Id))
+            {
+                await CheckGetPolicyAsync();
+            }
+            
+            return MapToGetOutputDto(giftCard);
+        }
+
         public virtual async Task ConsumeAsync(ConsumeGiftCardDto input)
         {
             var giftCard = await _giftCardManager.GetUsableAsync(input.Code, input.Password);

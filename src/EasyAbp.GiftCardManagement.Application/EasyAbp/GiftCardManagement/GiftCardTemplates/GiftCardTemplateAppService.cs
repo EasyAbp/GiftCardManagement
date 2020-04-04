@@ -12,7 +12,7 @@ namespace EasyAbp.GiftCardManagement.GiftCardTemplates
         protected override string CreatePolicyName { get; set; } = GiftCardManagementPermissions.GiftCardTemplates.Create;
         protected override string DeletePolicyName { get; set; } = GiftCardManagementPermissions.GiftCardTemplates.Delete;
         protected override string UpdatePolicyName { get; set; } = GiftCardManagementPermissions.GiftCardTemplates.Update;
-        protected override string GetPolicyName { get; set; } = GiftCardManagementPermissions.GiftCardTemplates.Default;
+        protected override string GetPolicyName { get; set; } = null;
         protected override string GetListPolicyName { get; set; } = GiftCardManagementPermissions.GiftCardTemplates.Default;
         
         private readonly IGiftCardTemplateRepository _repository;
