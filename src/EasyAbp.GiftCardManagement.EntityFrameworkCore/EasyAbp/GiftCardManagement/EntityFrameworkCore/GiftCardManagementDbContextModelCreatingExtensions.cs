@@ -54,6 +54,8 @@ namespace EasyAbp.GiftCardManagement.EntityFrameworkCore
                 b.ToTable(options.TablePrefix + "GiftCards", options.Schema);
                 b.ConfigureByConvention(); 
                 /* Configure more properties here */
+                b.HasIndex(c => c.Code).IsUnique();
+                b.HasIndex(c => c.GiftCardTemplateId);
             });
         }
     }
