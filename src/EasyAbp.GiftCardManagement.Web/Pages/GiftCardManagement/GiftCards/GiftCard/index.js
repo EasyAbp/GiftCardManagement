@@ -4,6 +4,7 @@ $(function () {
 
     var service = easyAbp.giftCardManagement.giftCards.giftCard;
     var createModal = new abp.ModalManager(abp.appPath + 'GiftCardManagement/GiftCards/GiftCard/CreateModal');
+    var createBatchModal = new abp.ModalManager(abp.appPath + 'GiftCardManagement/GiftCards/GiftCard/CreateBatchModal');
     var editModal = new abp.ModalManager(abp.appPath + 'GiftCardManagement/GiftCards/GiftCard/EditModal');
 
     var dataTable = $('#GiftCardTable').DataTable(abp.libs.datatables.normalizeConfiguration({
@@ -67,6 +68,10 @@ $(function () {
         dataTable.ajax.reload();
     });
 
+    createBatchModal.onResult(function () {
+        dataTable.ajax.reload();
+    });
+
     editModal.onResult(function () {
         dataTable.ajax.reload();
     });
@@ -74,5 +79,10 @@ $(function () {
     $('#NewGiftCardButton').click(function (e) {
         e.preventDefault();
         createModal.open({ giftCardTemplateId: templateId });
+    });
+
+    $('#NewGiftCardButtonInBatch').click(function (e) {
+        e.preventDefault();
+        createBatchModal.open({ giftCardTemplateId: templateId });
     });
 });

@@ -35,6 +35,10 @@
             <abp-column size-md="_6" class="text-right">
                 @if (await Authorization.IsGrantedAsync(GiftCardManagementPermissions.GiftCards.Create))
                 {
+                    <abp-button id="NewGiftCardButtonInBatch"
+                                text="@L["CreateGiftCardInBatch"].Value"
+                                icon="plus"
+                                button-type="Primary"/>
                     <abp-button id="NewGiftCardButton"
                                 text="@L["CreateGiftCard"].Value"
                                 icon="plus"
