@@ -1,12 +1,25 @@
+using System;
 using System.Threading.Tasks;
+using EasyAbp.GiftCardManagement.GiftCardTemplates;
+using EasyAbp.GiftCardManagement.GiftCardTemplates.Dtos;
+using Microsoft.AspNetCore.Mvc;
 
-namespace EasyAbp.GiftCardManagement.Web.Pages.GiftCards.GiftCard
+namespace EasyAbp.GiftCardManagement.Web.Pages.GiftCardManagement.GiftCards.GiftCard
 {
     public class IndexModel : GiftCardManagementPageModel
     {
-        public async Task OnGetAsync()
+        private readonly IGiftCardTemplateAppService _giftCardTemplateAppService;
+
+        public GiftCardTemplateDto Template { get; set; }
+
+        public IndexModel(IGiftCardTemplateAppService giftCardTemplateAppService)
         {
-            await Task.CompletedTask;
+            _giftCardTemplateAppService = giftCardTemplateAppService;
+        }
+        
+        public async Task OnGetAsync(Guid templateId)
+        {
+            Template = await _giftCardTemplateAppService.GetAsync(templateId);
         }
     }
 }

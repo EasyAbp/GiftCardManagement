@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace EasyAbp.GiftCardManagement.Web.Pages.GiftCardTemplates.GiftCardTemplate
+namespace EasyAbp.GiftCardManagement.Web.Pages.GiftCardManagement.GiftCardTemplates.GiftCardTemplate
 {
     public class IndexModel : GiftCardManagementPageModel
     {

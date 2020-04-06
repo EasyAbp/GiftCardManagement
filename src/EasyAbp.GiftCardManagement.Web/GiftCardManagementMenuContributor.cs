@@ -37,13 +37,6 @@ namespace EasyAbp.GiftCardManagement.Web
                 );
             }
 
-            if (await authorizationService.IsGrantedAsync(GiftCardManagementPermissions.GiftCardTemplates.Default))
-            {
-                menuItem.AddItem(
-                    new ApplicationMenuItem("GiftCard", l["Menu:GiftCard"], "/GiftCardManagement/GiftCards/GiftCard")
-                );
-            }
-
             if (!menuItem.Items.IsNullOrEmpty())
             {
                 context.Menu.AddItem(menuItem);

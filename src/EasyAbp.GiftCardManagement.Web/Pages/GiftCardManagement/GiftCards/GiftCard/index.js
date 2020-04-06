@@ -14,7 +14,9 @@ $(function () {
         autoWidth: false,
         scrollCollapse: true,
         order: [[1, "asc"]],
-        ajax: abp.libs.datatables.createAjax(service.getList),
+        ajax: abp.libs.datatables.createAjax(service.getList, function() {
+            return { giftCardTemplateId: templateId };
+        }),
         columnDefs: [
             {
                 rowAction: {
@@ -55,13 +57,9 @@ $(function () {
                         ]
                 }
             },
-            { data: "giftCardTemplateId" },
             { data: "code" },
-            { data: "passwordHash" },
             { data: "expiration" },
-            { data: "consumptionUserId" },
             { data: "consumptionTime" },
-            { data: "extraProperties" }
         ]
     }));
 
@@ -75,6 +73,6 @@ $(function () {
 
     $('#NewGiftCardButton').click(function (e) {
         e.preventDefault();
-        createModal.open();
+        createModal.open({ giftCardTemplateId: templateId });
     });
 });

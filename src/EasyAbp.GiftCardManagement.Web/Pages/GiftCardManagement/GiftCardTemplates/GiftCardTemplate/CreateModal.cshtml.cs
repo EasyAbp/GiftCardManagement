@@ -1,9 +1,9 @@
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using EasyAbp.GiftCardManagement.GiftCardTemplates;
 using EasyAbp.GiftCardManagement.GiftCardTemplates.Dtos;
+using Microsoft.AspNetCore.Mvc;
 
-namespace EasyAbp.GiftCardManagement.Web.Pages.GiftCardTemplates.GiftCardTemplate
+namespace EasyAbp.GiftCardManagement.Web.Pages.GiftCardManagement.GiftCardTemplates.GiftCardTemplate
 {
     public class CreateModalModel : GiftCardManagementPageModel
     {

@@ -18,7 +18,7 @@
     "GiftCardTenantId": "GiftCardTenantId",
     "GiftCardGiftCardTemplateId": "GiftCardGiftCardTemplateId",
     "GiftCardCode": "GiftCardCode",
-    "GiftCardPasswordHash": "GiftCardPasswordHash",
+    "GiftCardPassword": "GiftCardPassword",
     "GiftCardExpiration": "GiftCardExpiration",
     "GiftCardConsumptionUserId": "GiftCardConsumptionUserId",
     "GiftCardConsumptionTime": "GiftCardConsumptionTime",

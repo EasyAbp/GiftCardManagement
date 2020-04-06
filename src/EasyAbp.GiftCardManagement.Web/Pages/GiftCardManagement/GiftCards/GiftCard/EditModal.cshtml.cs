@@ -1,10 +1,11 @@
 using System;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using EasyAbp.GiftCardManagement.GiftCards;
 using EasyAbp.GiftCardManagement.GiftCards.Dtos;
+using EasyAbp.GiftCardManagement.Web.Pages.GiftCardManagement.GiftCards.GiftCard.ViewModels;
+using Microsoft.AspNetCore.Mvc;
 
-namespace EasyAbp.GiftCardManagement.Web.Pages.GiftCards.GiftCard
+namespace EasyAbp.GiftCardManagement.Web.Pages.GiftCardManagement.GiftCards.GiftCard
 {
     public class EditModalModel : GiftCardManagementPageModel
     {
@@ -13,7 +14,7 @@ namespace EasyAbp.GiftCardManagement.Web.Pages.GiftCards.GiftCard
         public Guid Id { get; set; }
 
         [BindProperty]
-        public CreateUpdateGiftCardDto GiftCard { get; set; }
+        public UpdateGiftCardDto GiftCard { get; set; }
 
         private readonly IGiftCardAppService _service;
 
@@ -25,12 +26,13 @@ namespace EasyAbp.GiftCardManagement.Web.Pages.GiftCards.GiftCard
         public async Task OnGetAsync()
         {
             var dto = await _service.GetAsync(Id);
-            GiftCard = ObjectMapper.Map<GiftCardDto, CreateUpdateGiftCardDto>(dto);
+            GiftCard = ObjectMapper.Map<GiftCardDto, UpdateGiftCardDto>(dto);
         }
 
         public async Task<IActionResult> OnPostAsync()
         {
             await _service.UpdateAsync(Id, GiftCard);
+            
             return NoContent();
         }
     }

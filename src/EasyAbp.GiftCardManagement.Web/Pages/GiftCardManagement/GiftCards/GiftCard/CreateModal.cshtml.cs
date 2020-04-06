@@ -1,14 +1,16 @@
+using System;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using EasyAbp.GiftCardManagement.GiftCards;
 using EasyAbp.GiftCardManagement.GiftCards.Dtos;
+using EasyAbp.GiftCardManagement.Web.Pages.GiftCardManagement.GiftCards.GiftCard.ViewModels;
+using Microsoft.AspNetCore.Mvc;
 
-namespace EasyAbp.GiftCardManagement.Web.Pages.GiftCards.GiftCard
+namespace EasyAbp.GiftCardManagement.Web.Pages.GiftCardManagement.GiftCards.GiftCard
 {
     public class CreateModalModel : GiftCardManagementPageModel
     {
         [BindProperty]
-        public CreateUpdateGiftCardDto GiftCard { get; set; }
+        public CreateGiftCardViewModel GiftCard { get; set; }
 
         private readonly IGiftCardAppService _service;
 
@@ -17,9 +19,19 @@ namespace EasyAbp.GiftCardManagement.Web.Pages.GiftCards.GiftCard
             _service = service;
         }
 
-        public async Task<IActionResult> OnPostAsync()
+        public virtual async Task OnGetAsync(Guid giftCardTemplateId)
         {
-            await _service.CreateAsync(GiftCard);
+            GiftCard = new CreateGiftCardViewModel
+            {
+                GiftCardTemplateId = giftCardTemplateId
+            };
+        }
+
+        public virtual async Task<IActionResult> OnPostAsync()
+        {
+            await _service.CreateAsync(
+                ObjectMapper.Map<CreateGiftCardViewModel, CreateGiftCardDto>(GiftCard));
+            
             return NoContent();
         }
     }

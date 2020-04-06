@@ -3,6 +3,7 @@ using EasyAbp.GiftCardManagement.GiftCardTemplates.Dtos;
 using EasyAbp.GiftCardManagement.GiftCards;
 using EasyAbp.GiftCardManagement.GiftCards.Dtos;
 using AutoMapper;
+using Volo.Abp.AutoMapper;
 
 namespace EasyAbp.GiftCardManagement
 {
@@ -16,7 +17,7 @@ namespace EasyAbp.GiftCardManagement
             CreateMap<GiftCardTemplate, GiftCardTemplateDto>();
             CreateMap<CreateUpdateGiftCardTemplateDto, GiftCardTemplate>(MemberList.Source);
             CreateMap<GiftCard, GiftCardDto>();
-            CreateMap<CreateUpdateGiftCardDto, GiftCard>(MemberList.Source);
+            CreateMap<UpdateGiftCardDto, GiftCard>(MemberList.None);
         }
     }
 }

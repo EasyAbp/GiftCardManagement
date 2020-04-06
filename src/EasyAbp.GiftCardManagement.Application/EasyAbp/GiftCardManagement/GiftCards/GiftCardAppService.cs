@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using EasyAbp.GiftCardManagement.Authorization;
 using EasyAbp.GiftCardManagement.GiftCards.Dtos;
@@ -12,7 +14,7 @@ using Volo.Abp.Uow;
 
 namespace EasyAbp.GiftCardManagement.GiftCards
 {
-    public class GiftCardAppService : CrudAppService<GiftCard, GiftCardDto, Guid, PagedAndSortedResultRequestDto, CreateUpdateGiftCardDto, CreateUpdateGiftCardDto>,
+    public class GiftCardAppService : CrudAppService<GiftCard, GiftCardDto, Guid, GetGiftCardListDto, CreateGiftCardDto, UpdateGiftCardDto>,
         IGiftCardAppService
     {
         protected override string CreatePolicyName { get; set; } = GiftCardManagementPermissions.GiftCards.Create;
@@ -21,16 +23,25 @@ namespace EasyAbp.GiftCardManagement.GiftCards
         protected override string GetPolicyName { get; set; } = GiftCardManagementPermissions.GiftCards.Default;
         protected override string GetListPolicyName { get; set; } = GiftCardManagementPermissions.GiftCards.Default;
 
+        private readonly IGiftCardPasswordHashProvider _giftCardPasswordHashProvider;
         private readonly IGiftCardManager _giftCardManager;
         private readonly IGiftCardTemplateRepository _giftCardTemplateRepository;
 
         public GiftCardAppService(
+            IGiftCardPasswordHashProvider giftCardPasswordHashProvider,
             IGiftCardManager giftCardManager,
             IGiftCardTemplateRepository giftCardTemplateRepository,
             IGiftCardRepository repository) : base(repository)
         {
+            _giftCardPasswordHashProvider = giftCardPasswordHashProvider;
             _giftCardManager = giftCardManager;
             _giftCardTemplateRepository = giftCardTemplateRepository;
+        }
+
+        protected override IQueryable<GiftCard> CreateFilteredQuery(GetGiftCardListDto input)
+        {
+            return base.CreateFilteredQuery(input)
+                .Where(giftCard => giftCard.GiftCardTemplateId == input.GiftCardTemplateId);
         }
 
         public virtual async Task ConsumeAsync(ConsumeGiftCardDto input)
@@ -45,6 +56,46 @@ namespace EasyAbp.GiftCardManagement.GiftCards
             }
 
             await _giftCardManager.ConsumeAsync(giftCard, CurrentUser.Id, input.ExtraProperties);
+        }
+
+        protected override GiftCard MapToEntity(CreateGiftCardDto createInput)
+        {
+            return new GiftCard(
+                GuidGenerator.Create(),
+                CurrentTenant.Id,
+                createInput.GiftCardTemplateId,
+                createInput.Code,
+                _giftCardPasswordHashProvider.GetPasswordHash(createInput.Password),
+                createInput.Expiration
+            );
+        }
+
+        protected override void MapToEntity(UpdateGiftCardDto input, GiftCard entity)
+        {
+            base.MapToEntity(input, entity);
+
+            if (!input.Password.IsNullOrWhiteSpace())
+            {
+                entity.ChangePasswordHash(_giftCardPasswordHashProvider.GetPasswordHash(input.Password));
+            }
+        }
+
+        public virtual async Task<IEnumerable<GiftCardDto>> CreateBatchAsync(IEnumerable<CreateGiftCardDto> input)
+        {
+            await CheckCreatePolicyAsync();
+
+            var dtos = new List<GiftCardDto>();
+            
+            foreach (var item in input)
+            {
+                var giftCard = MapToEntity(item);
+                
+                await Repository.InsertAsync(giftCard);
+
+                dtos.Add(MapToGetOutputDto(giftCard));
+            }
+
+            return dtos;
         }
     }
 }

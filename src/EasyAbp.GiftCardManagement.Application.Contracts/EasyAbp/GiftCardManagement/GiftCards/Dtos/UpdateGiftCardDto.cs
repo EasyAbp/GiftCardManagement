@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace EasyAbp.GiftCardManagement.GiftCards.Dtos
 {
-    public class CreateUpdateGiftCardDto
+    public class UpdateGiftCardDto
     {
         [DisplayName("GiftCardGiftCardTemplateId")]
         public Guid GiftCardTemplateId { get; set; }
@@ -14,17 +14,11 @@ namespace EasyAbp.GiftCardManagement.GiftCards.Dtos
         [DisplayName("GiftCardCode")]
         public string Code { get; set; }
         
-        [Required]
-        [DisplayName("GiftCardPasswordHash")]
-        public string PasswordHash { get; set; }
+        [DataType(DataType.Password)]
+        [DisplayName("GiftCardPassword")]
+        public string Password { get; set; }
 
         [DisplayName("GiftCardExpiration")]
         public DateTime? Expiration { get; set; }
-
-        [DisplayName("GiftCardConsumptionUserId")]
-        public Guid? ConsumptionUserId { get; set; }
-
-        [DisplayName("GiftCardConsumptionTime")]
-        public DateTime? ConsumptionTime { get; set; }
     }
 }

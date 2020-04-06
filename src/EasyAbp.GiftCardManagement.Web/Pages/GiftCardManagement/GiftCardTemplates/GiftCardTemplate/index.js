@@ -21,6 +21,12 @@ $(function () {
                     items:
                         [
                             {
+                                text: l('GiftCard'),
+                                action: function (data) {
+                                    document.location.href = document.location.origin + '/GiftCardManagement/GiftCards/GiftCard?templateId=' + data.record.id;
+                                }
+                            },
+                            {
                                 text: l('Edit'),
                                 action: function (data) {
                                     editModal.open({ id: data.record.id });
@@ -43,11 +49,7 @@ $(function () {
                 }
             },
             { data: "name" },
-            { data: "displayName" },
-            { data: "description" },
-            { data: "tenantAllowed" },
-            { data: "anonymousConsumptionAllowed" },
-            { data: "extraProperties" }
+            { data: "displayName" }
         ]
     }));
 

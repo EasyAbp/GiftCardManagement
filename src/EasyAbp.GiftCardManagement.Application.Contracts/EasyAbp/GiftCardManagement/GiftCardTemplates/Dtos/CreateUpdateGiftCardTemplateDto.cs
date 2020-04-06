@@ -23,9 +23,6 @@ namespace EasyAbp.GiftCardManagement.GiftCardTemplates.Dtos
     
         [DisplayName("GiftCardTemplateAnonymousConsumptionAllowed")]
         public bool AnonymousConsumptionAllowed { get; set; }
-        
-        [DisplayName("GiftCardTemplateExtraProperties")]
-        public Dictionary<string, object> ExtraProperties { get; set; }
 
     }
 }

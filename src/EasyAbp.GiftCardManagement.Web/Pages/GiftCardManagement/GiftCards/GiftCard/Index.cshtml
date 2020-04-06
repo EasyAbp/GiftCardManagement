@@ -1,6 +1,6 @@
 @page
 @using EasyAbp.GiftCardManagement.Authorization
-@using EasyAbp.GiftCardManagement.Web.Pages.GiftCards.GiftCard
+@using EasyAbp.GiftCardManagement.Web.Pages.GiftCardManagement.GiftCards.GiftCard
 @using Microsoft.AspNetCore.Authorization
 @using Volo.Abp.AspNetCore.Mvc.UI.Layout
 @inherits EasyAbp.GiftCardManagement.Web.Pages.GiftCardManagementPage
@@ -22,11 +22,15 @@
     <abp-style src="/Pages/GiftCardManagement/GiftCards/GiftCard/index.css"/>
 }
 
+<script>
+    let templateId = '@Model.Template.Id';
+</script>
+
 <abp-card>
     <abp-card-header>
         <abp-row>
             <abp-column size-md="_6">
-                <abp-card-title>@L["GiftCard"]</abp-card-title>
+                <abp-card-title>@L["GiftCard"] - @Model.Template.Name</abp-card-title>
             </abp-column>
             <abp-column size-md="_6" class="text-right">
                 @if (await Authorization.IsGrantedAsync(GiftCardManagementPermissions.GiftCards.Create))
@@ -44,13 +48,9 @@
             <thead>
             <tr>
                 <th>@L["Actions"]</th>
-                <th>@L["GiftCardGiftCardTemplateId"]</th>
                 <th>@L["GiftCardCode"]</th>
-                <th>@L["GiftCardPasswordHash"]</th>
                 <th>@L["GiftCardExpiration"]</th>
-                <th>@L["GiftCardConsumptionUserId"]</th>
                 <th>@L["GiftCardConsumptionTime"]</th>
-                <th>@L["GiftCardExtraProperties"]</th>
             </tr>
             </thead>
         </abp-table>

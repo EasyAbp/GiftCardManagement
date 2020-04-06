@@ -1,6 +1,8 @@
 using EasyAbp.GiftCardManagement.GiftCardTemplates.Dtos;
 using EasyAbp.GiftCardManagement.GiftCards.Dtos;
 using AutoMapper;
+using EasyAbp.GiftCardManagement.Web.Pages.GiftCardManagement.GiftCards.GiftCard.ViewModels;
+using Volo.Abp.AutoMapper;
 
 namespace EasyAbp.GiftCardManagement.Web
 {
@@ -12,7 +14,9 @@ namespace EasyAbp.GiftCardManagement.Web
              * Alternatively, you can split your mapping configurations
              * into multiple profile classes for a better organization. */
             CreateMap<GiftCardTemplateDto, CreateUpdateGiftCardTemplateDto>();
-            CreateMap<GiftCardDto, CreateUpdateGiftCardDto>();
+            CreateMap<GiftCardDto, CreateGiftCardViewModel>().Ignore(model => model.Password);
+            CreateMap<GiftCardDto, UpdateGiftCardDto>().Ignore(dto => dto.Password);
+            CreateMap<CreateGiftCardViewModel, CreateGiftCardDto>();
         }
     }
 }

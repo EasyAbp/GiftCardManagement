@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using EasyAbp.GiftCardManagement.GiftCards.Dtos;
 using Volo.Abp.Application.Dtos;
@@ -10,10 +11,12 @@ namespace EasyAbp.GiftCardManagement.GiftCards
         ICrudAppService< 
             GiftCardDto, 
             Guid, 
-            PagedAndSortedResultRequestDto,
-            CreateUpdateGiftCardDto,
-            CreateUpdateGiftCardDto>
+            GetGiftCardListDto,
+            CreateGiftCardDto,
+            UpdateGiftCardDto>
     {
         Task ConsumeAsync(ConsumeGiftCardDto input);
+
+        Task<IEnumerable<GiftCardDto>> CreateBatchAsync(IEnumerable<CreateGiftCardDto> input);
     }
 }

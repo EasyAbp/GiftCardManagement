@@ -78,5 +78,10 @@ namespace EasyAbp.GiftCardManagement.GiftCards
                 throw new GiftCardOverdueException(Code);
             }
         }
+
+        public void ChangePasswordHash(string newPasswordHash)
+        {
+            PasswordHash = newPasswordHash;
+        }
     }
 }
