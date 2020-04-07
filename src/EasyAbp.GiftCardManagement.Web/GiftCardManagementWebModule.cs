@@ -21,7 +21,11 @@ namespace EasyAbp.GiftCardManagement.Web
         {
             context.Services.PreConfigure<AbpMvcDataAnnotationsLocalizationOptions>(options =>
             {
-                options.AddAssemblyResource(typeof(GiftCardManagementResource), typeof(GiftCardManagementWebModule).Assembly);
+                options.AddAssemblyResource(
+                    typeof(GiftCardManagementResource),
+                    typeof(GiftCardManagementApplicationContractsModule).Assembly,
+                    typeof(GiftCardManagementWebModule).Assembly
+                );
             });
 
             PreConfigure<IMvcBuilder>(mvcBuilder =>

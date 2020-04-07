@@ -7,7 +7,6 @@ namespace EasyAbp.GiftCardManagement.GiftCards.Dtos
 {
     public class CreateGiftCardDto
     {
-        [DisplayName("GiftCardGiftCardTemplateId")]
         public Guid GiftCardTemplateId { get; set; }
 
         [Required]

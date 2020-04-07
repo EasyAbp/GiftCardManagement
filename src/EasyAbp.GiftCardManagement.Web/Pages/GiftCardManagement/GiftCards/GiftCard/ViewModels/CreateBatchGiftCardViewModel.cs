@@ -9,7 +9,6 @@ namespace EasyAbp.GiftCardManagement.Web.Pages.GiftCardManagement.GiftCards.Gift
     public class CreateBatchGiftCardViewModel
     {
         [HiddenInput]
-        [DisplayName("GiftCardGiftCardTemplateId")]
         public Guid GiftCardTemplateId { get; set; }
 
         [Required]

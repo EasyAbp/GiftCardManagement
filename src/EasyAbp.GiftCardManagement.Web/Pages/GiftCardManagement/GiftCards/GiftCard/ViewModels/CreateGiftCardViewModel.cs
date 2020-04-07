@@ -8,7 +8,6 @@ namespace EasyAbp.GiftCardManagement.Web.Pages.GiftCardManagement.GiftCards.Gift
     public class CreateGiftCardViewModel
     {
         [HiddenInput]
-        [DisplayName("GiftCardGiftCardTemplateId")]
         public Guid GiftCardTemplateId { get; set; }
 
         [Required]
