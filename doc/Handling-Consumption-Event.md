@@ -14,7 +14,7 @@ For example: You want to create a new tenant by consuming a gift card, you need 
 
 ### Allow Anonymous Consuming
 1. Set property `AnonymousConsumptionAllowed` of the entity GiftCardTemplate to `true`.
-2. Do not use the default consumption page (since it requires the permission and do not support customizing the ExtraProperties)
+2. Do not use the default consumption page (since it requires the permission and do not support customizing the ExtraProperties).
 
 ### Customization
-You can almost override everything. See the ABP document: [Customizing the Existing Modules](https://docs.abp.io/en/abp/latest/Customizing-Application-Modules-Guide)
+You can almost override everything. See the ABP document: [Customizing the Existing Modules](https://docs.abp.io/en/abp/latest/Customizing-Application-Modules-Guide).
