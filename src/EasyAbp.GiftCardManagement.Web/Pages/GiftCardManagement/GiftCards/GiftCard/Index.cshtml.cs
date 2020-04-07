@@ -17,7 +17,7 @@ namespace EasyAbp.GiftCardManagement.Web.Pages.GiftCardManagement.GiftCards.Gift
             _giftCardTemplateAppService = giftCardTemplateAppService;
         }
         
-        public async Task OnGetAsync(Guid templateId)
+        public virtual async Task OnGetAsync(Guid templateId)
         {
             Template = await _giftCardTemplateAppService.GetAsync(templateId);
         }

@@ -23,13 +23,13 @@ namespace EasyAbp.GiftCardManagement.Web.Pages.GiftCardManagement.GiftCards.Gift
             _service = service;
         }
 
-        public async Task OnGetAsync()
+        public virtual async Task OnGetAsync()
         {
             var dto = await _service.GetAsync(Id);
             GiftCard = ObjectMapper.Map<GiftCardDto, UpdateGiftCardDto>(dto);
         }
 
-        public async Task<IActionResult> OnPostAsync()
+        public virtual async Task<IActionResult> OnPostAsync()
         {
             await _service.UpdateAsync(Id, GiftCard);
             

@@ -35,7 +35,7 @@ namespace EasyAbp.GiftCardManagement.GiftCards
             _giftCardPasswordHashProvider = giftCardPasswordHashProvider;
         }
 
-        public async Task<GiftCard> GetUsableAsync(string code, string password)
+        public virtual async Task<GiftCard> GetUsableAsync(string code, string password)
         {
             var giftCard = await _repository.GetAsync(code, _giftCardPasswordHashProvider.GetPasswordHash(password));
 
@@ -44,7 +44,7 @@ namespace EasyAbp.GiftCardManagement.GiftCards
             return giftCard;
         }
 
-        public async Task ConsumeAsync(GiftCard giftCard, Guid? userId, Dictionary<string, object> extraProperties = null)
+        public virtual async Task ConsumeAsync(GiftCard giftCard, Guid? userId, Dictionary<string, object> extraProperties = null)
         {
             var template = await _giftCardTemplateRepository.GetAsync(giftCard.GiftCardTemplateId);
             
