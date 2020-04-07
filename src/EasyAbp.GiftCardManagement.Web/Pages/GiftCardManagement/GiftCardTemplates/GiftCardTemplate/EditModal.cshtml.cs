@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using EasyAbp.GiftCardManagement.GiftCardTemplates;
 using EasyAbp.GiftCardManagement.GiftCardTemplates.Dtos;
+using EasyAbp.GiftCardManagement.Web.Pages.GiftCardManagement.GiftCardTemplates.GiftCardTemplate.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EasyAbp.GiftCardManagement.Web.Pages.GiftCardManagement.GiftCardTemplates.GiftCardTemplate
@@ -13,7 +14,7 @@ namespace EasyAbp.GiftCardManagement.Web.Pages.GiftCardManagement.GiftCardTempla
         public Guid Id { get; set; }
 
         [BindProperty]
-        public CreateUpdateGiftCardTemplateDto GiftCardTemplate { get; set; }
+        public CreateUpdateGiftCardTemplateViewModel GiftCardTemplate { get; set; }
 
         private readonly IGiftCardTemplateAppService _service;
 
@@ -25,12 +26,15 @@ namespace EasyAbp.GiftCardManagement.Web.Pages.GiftCardManagement.GiftCardTempla
         public async Task OnGetAsync()
         {
             var dto = await _service.GetAsync(Id);
-            GiftCardTemplate = ObjectMapper.Map<GiftCardTemplateDto, CreateUpdateGiftCardTemplateDto>(dto);
+            GiftCardTemplate = ObjectMapper.Map<GiftCardTemplateDto, CreateUpdateGiftCardTemplateViewModel>(dto);
         }
 
         public async Task<IActionResult> OnPostAsync()
         {
-            await _service.UpdateAsync(Id, GiftCardTemplate);
+            await _service.UpdateAsync(Id,
+                ObjectMapper.Map<CreateUpdateGiftCardTemplateViewModel, CreateUpdateGiftCardTemplateDto>(
+                    GiftCardTemplate));
+            
             return NoContent();
         }
     }
