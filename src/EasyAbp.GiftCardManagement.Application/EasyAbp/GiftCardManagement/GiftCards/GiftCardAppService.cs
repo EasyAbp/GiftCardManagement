@@ -20,8 +20,8 @@ namespace EasyAbp.GiftCardManagement.GiftCards
         protected override string CreatePolicyName { get; set; } = GiftCardManagementPermissions.GiftCards.Create;
         protected override string DeletePolicyName { get; set; } = GiftCardManagementPermissions.GiftCards.Delete;
         protected override string UpdatePolicyName { get; set; } = GiftCardManagementPermissions.GiftCards.Update;
-        protected override string GetPolicyName { get; set; } = GiftCardManagementPermissions.GiftCards.Default;
-        protected override string GetListPolicyName { get; set; } = GiftCardManagementPermissions.GiftCards.Default;
+        protected override string GetPolicyName { get; set; } = GiftCardManagementPermissions.GiftCards.Manage;
+        protected override string GetListPolicyName { get; set; } = GiftCardManagementPermissions.GiftCards.Manage;
 
         private readonly IGiftCardPasswordHashProvider _giftCardPasswordHashProvider;
         private readonly IGiftCardManager _giftCardManager;

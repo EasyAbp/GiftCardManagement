@@ -13,6 +13,7 @@ namespace EasyAbp.GiftCardManagement.Authorization
 
             var giftCards = moduleGroup.AddPermission(GiftCardManagementPermissions.GiftCards.Default, L("Permission:GiftCard"));
             giftCards.AddChild(GiftCardManagementPermissions.GiftCards.Consume, L("Permission:Consume"));
+            giftCards.AddChild(GiftCardManagementPermissions.GiftCards.Manage, L("Permission:Manage"));
             giftCards.AddChild(GiftCardManagementPermissions.GiftCards.Create, L("Permission:Create"));
             giftCards.AddChild(GiftCardManagementPermissions.GiftCards.Update, L("Permission:Update"));
             giftCards.AddChild(GiftCardManagementPermissions.GiftCards.Delete, L("Permission:Delete"));

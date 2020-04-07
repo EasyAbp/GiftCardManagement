@@ -16,7 +16,8 @@ namespace EasyAbp.GiftCardManagement.Web
             CreateMap<GiftCardTemplateDto, CreateUpdateGiftCardTemplateDto>();
             CreateMap<GiftCardDto, CreateGiftCardViewModel>().Ignore(model => model.Password);
             CreateMap<GiftCardDto, UpdateGiftCardDto>().Ignore(dto => dto.Password);
-            CreateMap<CreateGiftCardViewModel, CreateGiftCardDto>();
+            CreateMap<CreateGiftCardViewModel, CreateGiftCardDto>(MemberList.Source);
+            CreateMap<ConsumeGiftCardViewModel, ConsumeGiftCardDto>(MemberList.Source);
         }
     }
 }

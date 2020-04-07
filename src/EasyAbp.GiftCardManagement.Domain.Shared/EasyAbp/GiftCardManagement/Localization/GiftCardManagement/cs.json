@@ -2,6 +2,7 @@
   "culture": "cs",
   "texts": {
     "Menu:GiftCardTemplate": "MenuGiftCardTemplate",
+    "Menu:GiftCardConsumption": "MenuGiftCardConsumption",
     "GiftCardTemplate": "GiftCardTemplate",
     "GiftCardTemplateName": "GiftCardTemplateName",
     "GiftCardTemplateDisplayName": "GiftCardTemplateDisplayName",
@@ -13,6 +14,7 @@
     "EditGiftCardTemplate": "EditGiftCardTemplate",
     "GiftCardTemplateDeletionConfirmationMessage": "Are you sure to delete the giftcardtemplate {0}?",
     "SuccessfullyDeleted": "Successfully deleted",
+    "SuccessfullyConsumed": "Successfully consumed",
     "Menu:GiftCard": "MenuGiftCard",
     "GiftCard": "GiftCard",
     "GiftCardTenantId": "GiftCardTenantId",
@@ -26,10 +28,12 @@
     "GiftCardCodesPasswords": "GiftCardCodesPasswords",
     "GiftCardCodesPasswordsPlaceholder": "GiftCardCodesPasswordsPlaceholder",
     "CreateGiftCard": "CreateGiftCard",
-"CreateGiftCardInBatch": "CreateGiftCardInBatch",
+    "CreateGiftCardInBatch": "CreateGiftCardInBatch",
+    "ConsumeGiftCard": "ConsumeGiftCard",
     "EditGiftCard": "EditGiftCard",
     "GiftCardDeletionConfirmationMessage": "Are you sure to delete the giftcard {0}?",
     "Permission:GiftCard": "Permission:GiftCard",
-    "Permission:Consume": "Permission:Consume"
+    "Permission:Consume": "Permission:Consume",
+    "Permission:Manage": "Permission:Manage"
   }
 }

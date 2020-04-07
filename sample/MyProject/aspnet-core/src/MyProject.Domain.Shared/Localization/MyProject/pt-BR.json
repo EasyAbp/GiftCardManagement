@@ -11,6 +11,7 @@
     "EditGift": "EditGift",
     "GiftDeletionConfirmationMessage": "Are you sure to delete the gift {0}?",
     "SuccessfullyDeleted": "Successfully deleted",
+    "SuccessfullyConsumed": "Successfully consumed",
     "Menu:UserGift": "MenuUserGift",
     "UserGift": "UserGift",
     "UserGiftUserId": "UserGiftUserId",
