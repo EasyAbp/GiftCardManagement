@@ -50,6 +50,11 @@ namespace EasyAbp.GiftCardManagement.GiftCards
 
             var template = await _giftCardTemplateRepository.GetAsync(giftCard.GiftCardTemplateId);
 
+            if (CurrentTenant.Id.HasValue && !template.TenantAllowed)
+            {
+                throw new GiftCardTemplateTenantNotAllowedException(template.Id);
+            }
+            
             if (!template.AnonymousConsumptionAllowed)
             {
                 await AuthorizationService.CheckAsync(GiftCardManagementPermissions.GiftCards.Consume);
