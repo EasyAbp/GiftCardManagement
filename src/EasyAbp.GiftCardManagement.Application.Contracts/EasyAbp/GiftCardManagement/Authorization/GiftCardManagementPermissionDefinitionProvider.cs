@@ -18,7 +18,7 @@ namespace EasyAbp.GiftCardManagement.Authorization
             giftCards.AddChild(GiftCardManagementPermissions.GiftCards.Update, L("Permission:Update"));
             giftCards.AddChild(GiftCardManagementPermissions.GiftCards.Delete, L("Permission:Delete"));
             
-            var giftCardTemplates = moduleGroup.AddPermission(GiftCardManagementPermissions.GiftCardTemplates.Default, L("Permission:GiftCardTemplate"), MultiTenancySides.Host);
+            var giftCardTemplates = moduleGroup.AddPermission(GiftCardManagementPermissions.GiftCardTemplates.Default, L("Permission:GiftCardTemplate"));
             giftCardTemplates.AddChild(GiftCardManagementPermissions.GiftCardTemplates.Create, L("Permission:Create"), MultiTenancySides.Host);
             giftCardTemplates.AddChild(GiftCardManagementPermissions.GiftCardTemplates.Update, L("Permission:Update"), MultiTenancySides.Host);
             giftCardTemplates.AddChild(GiftCardManagementPermissions.GiftCardTemplates.Delete, L("Permission:Delete"), MultiTenancySides.Host);
