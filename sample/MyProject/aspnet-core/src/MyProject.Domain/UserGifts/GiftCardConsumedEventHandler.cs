@@ -13,16 +13,16 @@ namespace MyProject.UserGifts
     public class GiftCardConsumedEventHandler : IDistributedEventHandler<GiftCardConsumedEto>, ITransientDependency
     {
         private readonly IGuidGenerator _guidGenerator;
-        private readonly IGiftAppService _giftAppService;
+        private readonly IGiftRepository _giftRepository;
         private readonly IUserGiftRepository _userGiftRepository;
 
         public GiftCardConsumedEventHandler(
             IGuidGenerator guidGenerator,
-            IGiftAppService giftAppService,
+            IGiftRepository giftRepository,
             IUserGiftRepository userGiftRepository)
         {
             _guidGenerator = guidGenerator;
-            _giftAppService = giftAppService;
+            _giftRepository = giftRepository;
             _userGiftRepository = userGiftRepository;
         }
         
@@ -35,8 +35,6 @@ namespace MyProject.UserGifts
             
             var giftName = eventData.GiftCardTemplateExtraProperties.GetOrDefault("GiftName").As<string>();
             
-            var gift = await _giftAppService.GetByNameAsync(giftName);
-
             if (giftName.IsNullOrWhiteSpace())
             {
                 throw new GiftCardGiftNameNotDefinedException(eventData.GiftCardTemplateName);
@@ -46,6 +44,8 @@ namespace MyProject.UserGifts
             {
                 throw new GiftCardConsumptionUserIdEmptyException(eventData.GiftCardCode);
             }
+
+            var gift = await _giftRepository.GetAsync(giftName);
 
             await _userGiftRepository.InsertAsync(new UserGift(_guidGenerator.Create(),
                 eventData.ConsumptionUserId.Value, gift.Id));
