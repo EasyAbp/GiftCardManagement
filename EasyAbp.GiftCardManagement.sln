@@ -15,8 +15,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{649A3FFA-182
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{CCD2960C-23CC-4AB4-B84D-60C7AAA52F4D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "host", "host", "{E400416D-2895-4512-9D17-90681EEC7E0A}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.GiftCardManagement.EntityFrameworkCore", "src\EasyAbp.GiftCardManagement.EntityFrameworkCore\EasyAbp.GiftCardManagement.EntityFrameworkCore.csproj", "{0CE86223-D31D-4315-A1F5-87BA3EE1B844}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.GiftCardManagement.MongoDB", "src\EasyAbp.GiftCardManagement.MongoDB\EasyAbp.GiftCardManagement.MongoDB.csproj", "{F1C58097-4C08-4D88-8976-6B3389391481}"
@@ -35,19 +33,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.GiftCardManagement.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.GiftCardManagement.Application.Tests", "test\EasyAbp.GiftCardManagement.Application.Tests\EasyAbp.GiftCardManagement.Application.Tests.csproj", "{90CB5DC4-C040-45C7-8900-9688B26405BC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.GiftCardManagement.HttpApi.Host", "host\EasyAbp.GiftCardManagement.HttpApi.Host\EasyAbp.GiftCardManagement.HttpApi.Host.csproj", "{37B135B0-DAFE-4616-B25C-1BDF32FC44A2}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.GiftCardManagement.Web", "src\EasyAbp.GiftCardManagement.Web\EasyAbp.GiftCardManagement.Web.csproj", "{3B7B6317-1B85-4164-8E11-75574F80AE17}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.GiftCardManagement.HttpApi.Client.ConsoleTestApp", "test\EasyAbp.GiftCardManagement.HttpApi.Client.ConsoleTestApp\EasyAbp.GiftCardManagement.HttpApi.Client.ConsoleTestApp.csproj", "{1EDCD6D4-DF3A-4E3B-ABB6-C0D0B373EAB8}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.GiftCardManagement.Web.Host", "host\EasyAbp.GiftCardManagement.Web.Host\EasyAbp.GiftCardManagement.Web.Host.csproj", "{73513786-B6C6-4A21-89C5-0FBDD0A46107}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.GiftCardManagement.IdentityServer", "host\EasyAbp.GiftCardManagement.IdentityServer\EasyAbp.GiftCardManagement.IdentityServer.csproj", "{690203F4-3CD5-4569-88D9-EE831EEA5F5F}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.GiftCardManagement.Host.Shared", "host\EasyAbp.GiftCardManagement.Host.Shared\EasyAbp.GiftCardManagement.Host.Shared.csproj", "{F6AC8D4A-EDD7-4514-8E8A-5BCB019864DB}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.GiftCardManagement.Web.Unified", "host\EasyAbp.GiftCardManagement.Web.Unified\EasyAbp.GiftCardManagement.Web.Unified.csproj", "{3D872C41-E226-45C8-89C1-9D3DBD7C73F2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyProject.Application", "sample\MyProject\aspnet-core\src\MyProject.Application\MyProject.Application.csproj", "{15DD25E2-14C8-47FD-B3B3-72AFA57C57DB}"
 EndProject
@@ -129,10 +117,6 @@ Global
 		{90CB5DC4-C040-45C7-8900-9688B26405BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90CB5DC4-C040-45C7-8900-9688B26405BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90CB5DC4-C040-45C7-8900-9688B26405BC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{37B135B0-DAFE-4616-B25C-1BDF32FC44A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{37B135B0-DAFE-4616-B25C-1BDF32FC44A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{37B135B0-DAFE-4616-B25C-1BDF32FC44A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{37B135B0-DAFE-4616-B25C-1BDF32FC44A2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3B7B6317-1B85-4164-8E11-75574F80AE17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3B7B6317-1B85-4164-8E11-75574F80AE17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B7B6317-1B85-4164-8E11-75574F80AE17}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -141,22 +125,6 @@ Global
 		{1EDCD6D4-DF3A-4E3B-ABB6-C0D0B373EAB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1EDCD6D4-DF3A-4E3B-ABB6-C0D0B373EAB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1EDCD6D4-DF3A-4E3B-ABB6-C0D0B373EAB8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{73513786-B6C6-4A21-89C5-0FBDD0A46107}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{73513786-B6C6-4A21-89C5-0FBDD0A46107}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{73513786-B6C6-4A21-89C5-0FBDD0A46107}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{73513786-B6C6-4A21-89C5-0FBDD0A46107}.Release|Any CPU.Build.0 = Release|Any CPU
-		{690203F4-3CD5-4569-88D9-EE831EEA5F5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{690203F4-3CD5-4569-88D9-EE831EEA5F5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{690203F4-3CD5-4569-88D9-EE831EEA5F5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{690203F4-3CD5-4569-88D9-EE831EEA5F5F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F6AC8D4A-EDD7-4514-8E8A-5BCB019864DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F6AC8D4A-EDD7-4514-8E8A-5BCB019864DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F6AC8D4A-EDD7-4514-8E8A-5BCB019864DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F6AC8D4A-EDD7-4514-8E8A-5BCB019864DB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3D872C41-E226-45C8-89C1-9D3DBD7C73F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3D872C41-E226-45C8-89C1-9D3DBD7C73F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3D872C41-E226-45C8-89C1-9D3DBD7C73F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3D872C41-E226-45C8-89C1-9D3DBD7C73F2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{15DD25E2-14C8-47FD-B3B3-72AFA57C57DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{15DD25E2-14C8-47FD-B3B3-72AFA57C57DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15DD25E2-14C8-47FD-B3B3-72AFA57C57DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -215,13 +183,8 @@ Global
 		{D0AD9179-125C-40B2-A8EE-CD4C1EE24BB6} = {CCD2960C-23CC-4AB4-B84D-60C7AAA52F4D}
 		{E60895E5-79C4-447D-88B7-85CB5BA336A4} = {CCD2960C-23CC-4AB4-B84D-60C7AAA52F4D}
 		{90CB5DC4-C040-45C7-8900-9688B26405BC} = {CCD2960C-23CC-4AB4-B84D-60C7AAA52F4D}
-		{37B135B0-DAFE-4616-B25C-1BDF32FC44A2} = {E400416D-2895-4512-9D17-90681EEC7E0A}
 		{3B7B6317-1B85-4164-8E11-75574F80AE17} = {649A3FFA-182F-4E56-9717-E6A9A2BEC545}
 		{1EDCD6D4-DF3A-4E3B-ABB6-C0D0B373EAB8} = {CCD2960C-23CC-4AB4-B84D-60C7AAA52F4D}
-		{73513786-B6C6-4A21-89C5-0FBDD0A46107} = {E400416D-2895-4512-9D17-90681EEC7E0A}
-		{690203F4-3CD5-4569-88D9-EE831EEA5F5F} = {E400416D-2895-4512-9D17-90681EEC7E0A}
-		{F6AC8D4A-EDD7-4514-8E8A-5BCB019864DB} = {E400416D-2895-4512-9D17-90681EEC7E0A}
-		{3D872C41-E226-45C8-89C1-9D3DBD7C73F2} = {E400416D-2895-4512-9D17-90681EEC7E0A}
 		{15DD25E2-14C8-47FD-B3B3-72AFA57C57DB} = {731DB62D-8359-46FF-871F-D52D47DD9573}
 		{26C070BF-DEF9-40DD-9ADB-89E94459486D} = {731DB62D-8359-46FF-871F-D52D47DD9573}
 		{B17F4C2D-4B08-437C-972E-19AC7CB53823} = {731DB62D-8359-46FF-871F-D52D47DD9573}
