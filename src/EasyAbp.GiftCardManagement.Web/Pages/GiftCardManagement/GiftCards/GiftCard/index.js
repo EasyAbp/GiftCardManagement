@@ -29,19 +29,6 @@ $(function () {
                                     editModal.open({ id: data.record.id });
                                 }
                             },
-                            // Todo: should be removed.
-                            {
-                                text: l('Consume'),
-                                action: function (data) {
-                                    service.consume({
-                                        code: data.record.code,
-                                        password: '123456'
-                                    }).then(function () {
-                                        abp.notify.info(l('SuccessfullyDeleted'));
-                                        dataTable.ajax.reload();
-                                    });
-                                }
-                            },
                             {
                                 text: l('Delete'),
                                 confirmMessage: function (data) {
