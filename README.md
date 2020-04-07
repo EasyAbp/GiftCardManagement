@@ -41,7 +41,7 @@ An abp application module where you can create gift cards and your app user can 
 
 1. Create a gift card.
 
-1. Handle the gift card consumption distributed event. See [Handle ](doc/Handle-Consumption-Event.md).
+1. Handle the gift card consumption distributed event. See the document: [Handling Consumption Event](doc/Handling-Consumption-Event.md).
 
 1. Try to consume the gift card.
 
