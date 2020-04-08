@@ -51,5 +51,6 @@ An abp application module where you can create gift cards and your app user can 
 
 ## Roadmap
 
+- [ ] Consumption rollback feature.
 - [ ] Improve management pages.
 - [ ] Unit tests.
