@@ -7,6 +7,7 @@ using MyProject.Gifts;
 using Volo.Abp.DependencyInjection;
 using Volo.Abp.EventBus.Distributed;
 using Volo.Abp.Guids;
+using Volo.Abp.Uow;
 
 namespace MyProject.UserGifts
 {
@@ -26,6 +27,7 @@ namespace MyProject.UserGifts
             _userGiftRepository = userGiftRepository;
         }
         
+        [UnitOfWork(true)]
         public async Task HandleEventAsync(GiftCardConsumedEto eventData)
         {
             if (!eventData.GiftCardTemplateName.StartsWith("Gift:"))
