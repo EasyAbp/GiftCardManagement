@@ -25,7 +25,7 @@ namespace EasyAbp.GiftCardManagement
                 options.Resources
                     .Add<GiftCardManagementResource>("en")
                     .AddBaseTypes(typeof(AbpValidationResource))
-                    .AddVirtualJson("/Localization/GiftCardManagement");
+                    .AddVirtualJson("/EasyAbp/GiftCardManagement/Localization/GiftCardManagement");
             });
 
             Configure<AbpExceptionLocalizationOptions>(options =>
