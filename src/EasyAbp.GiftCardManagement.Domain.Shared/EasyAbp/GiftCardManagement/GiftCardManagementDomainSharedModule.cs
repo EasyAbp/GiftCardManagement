@@ -17,7 +17,7 @@ namespace EasyAbp.GiftCardManagement
         {
             Configure<AbpVirtualFileSystemOptions>(options =>
             {
-                options.FileSets.AddEmbedded<GiftCardManagementDomainSharedModule>("EasyAbp.GiftCardManagement");
+                options.FileSets.AddEmbedded<GiftCardManagementDomainSharedModule>();
             });
 
             Configure<AbpLocalizationOptions>(options =>
@@ -30,7 +30,7 @@ namespace EasyAbp.GiftCardManagement
 
             Configure<AbpExceptionLocalizationOptions>(options =>
             {
-                options.MapCodeNamespace("GiftCardManagement", typeof(GiftCardManagementResource));
+                options.MapCodeNamespace("EasyAbp.GiftCardManagement", typeof(GiftCardManagementResource));
             });
         }
     }
