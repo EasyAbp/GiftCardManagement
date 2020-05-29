@@ -1,4 +1,8 @@
 # GiftCardManagement
+
+[![NuGet](https://img.shields.io/nuget/v/EasyAbp.GiftCardManagement.Domain.Shared.svg?style=flat-square)](https://www.nuget.org/packages/EasyAbp.GiftCardManagement.Domain.Shared)
+[![NuGet Download](https://img.shields.io/nuget/dt/EasyAbp.GiftCardManagement.Domain.Shared.svg?style=flat-square)](https://www.nuget.org/packages/EasyAbp.GiftCardManagement.Domain.Shared)
+
 An abp application module where you can create gift cards and your app user can use them to exchange something.
 
 ## Getting Started
