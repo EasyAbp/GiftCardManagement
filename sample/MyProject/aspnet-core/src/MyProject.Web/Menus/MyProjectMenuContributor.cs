@@ -26,7 +26,7 @@ namespace MyProject.Web.Menus
                 administration.TryRemoveMenuItem(TenantManagementMenuNames.GroupName);
             }
 
-            var l = context.ServiceProvider.GetRequiredService<IStringLocalizer<MyProjectResource>>();
+            var l = context.GetLocalizer<MyProjectResource>();
 
             context.Menu.Items.Insert(0, new ApplicationMenuItem("MyProject.Home", l["Menu:Home"], "/"));
             context.Menu.AddItem(

@@ -24,7 +24,7 @@ namespace EasyAbp.GiftCardManagement.Web
 
         private async Task ConfigureMainMenu(MenuConfigurationContext context)
         {
-            var l = context.ServiceProvider.GetRequiredService<IStringLocalizer<GiftCardManagementResource>>();            //Add main menu items.
+            var l = context.GetLocalizer<GiftCardManagementResource>();            //Add main menu items.
 
             var menuItem = new ApplicationMenuItem("GiftCardManagement", l["Menu:GiftCardManagement"]);
             
