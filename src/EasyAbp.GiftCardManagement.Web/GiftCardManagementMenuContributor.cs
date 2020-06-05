@@ -28,16 +28,14 @@ namespace EasyAbp.GiftCardManagement.Web
 
             var menuItem = new ApplicationMenuItem("GiftCardManagement", l["Menu:GiftCardManagement"]);
             
-            var authorizationService = context.ServiceProvider.GetRequiredService<IAuthorizationService>();
-
-            if (await authorizationService.IsGrantedAsync(GiftCardManagementPermissions.GiftCardTemplates.Default))
+            if (await context.IsGrantedAsync(GiftCardManagementPermissions.GiftCardTemplates.Default))
             {
                 menuItem.AddItem(
                     new ApplicationMenuItem("GiftCardTemplate", l["Menu:GiftCardTemplate"], "/GiftCardManagement/GiftCardTemplates/GiftCardTemplate")
                 );
             }
             
-            if (await authorizationService.IsGrantedAsync(GiftCardManagementPermissions.GiftCards.Consume))
+            if (await context.IsGrantedAsync(GiftCardManagementPermissions.GiftCards.Consume))
             {
                 menuItem.AddItem(
                     new ApplicationMenuItem("GiftCardConsumption", l["Menu:GiftCardConsumption"], "/GiftCardManagement/GiftCards/GiftCard/Consume")
