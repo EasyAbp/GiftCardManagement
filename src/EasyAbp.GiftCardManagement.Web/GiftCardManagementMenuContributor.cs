@@ -26,19 +26,19 @@ namespace EasyAbp.GiftCardManagement.Web
         {
             var l = context.GetLocalizer<GiftCardManagementResource>();            //Add main menu items.
 
-            var menuItem = new ApplicationMenuItem("GiftCardManagement", l["Menu:GiftCardManagement"]);
+            var menuItem = new ApplicationMenuItem("EasyAbpGiftCardManagement", l["Menu:GiftCardManagement"]);
             
             if (await context.IsGrantedAsync(GiftCardManagementPermissions.GiftCardTemplates.Default))
             {
                 menuItem.AddItem(
-                    new ApplicationMenuItem("GiftCardTemplate", l["Menu:GiftCardTemplate"], "/GiftCardManagement/GiftCardTemplates/GiftCardTemplate")
+                    new ApplicationMenuItem("EasyAbpGiftCardManagementGiftCardTemplate", l["Menu:GiftCardTemplate"], "/GiftCardManagement/GiftCardTemplates/GiftCardTemplate")
                 );
             }
             
             if (await context.IsGrantedAsync(GiftCardManagementPermissions.GiftCards.Consume))
             {
                 menuItem.AddItem(
-                    new ApplicationMenuItem("GiftCardConsumption", l["Menu:GiftCardConsumption"], "/GiftCardManagement/GiftCards/GiftCard/Consume")
+                    new ApplicationMenuItem("EasyAbpGiftCardManagementGiftCardConsumption", l["Menu:GiftCardConsumption"], "/GiftCardManagement/GiftCards/GiftCard/Consume")
                 );
             }
 
