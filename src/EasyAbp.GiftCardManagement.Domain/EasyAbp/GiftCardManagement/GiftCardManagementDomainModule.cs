@@ -1,4 +1,7 @@
-﻿using Volo.Abp.Modularity;
+﻿using EasyAbp.GiftCardManagement.GiftCards;
+using EasyAbp.GiftCardManagement.GiftCardTemplates;
+using Volo.Abp.Domain.Entities.Events.Distributed;
+using Volo.Abp.Modularity;
 
 namespace EasyAbp.GiftCardManagement
 {
@@ -7,6 +10,13 @@ namespace EasyAbp.GiftCardManagement
         )]
     public class GiftCardManagementDomainModule : AbpModule
     {
-
+        public override void PreConfigureServices(ServiceConfigurationContext context)
+        {
+            Configure<AbpDistributedEntityEventOptions>(options =>
+            {
+                options.AutoEventSelectors.Add<GiftCardTemplate>();
+                options.AutoEventSelectors.Add<GiftCard>();
+            });
+        }
     }
 }
