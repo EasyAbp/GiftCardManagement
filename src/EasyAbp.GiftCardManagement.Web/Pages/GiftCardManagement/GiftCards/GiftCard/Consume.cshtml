@@ -1,10 +1,12 @@
 @page
 @using EasyAbp.GiftCardManagement.Authorization
+@using EasyAbp.GiftCardManagement.Localization
 @using EasyAbp.GiftCardManagement.Web.Pages.GiftCardManagement.GiftCards.GiftCard
 @using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Mvc.Localization
 @using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
 @using Volo.Abp.AspNetCore.Mvc.UI.Layout
-@inherits EasyAbp.GiftCardManagement.Web.Pages.GiftCardManagementPage
+@inject IHtmlLocalizer<GiftCardManagementResource> L
 @model ConsumeModel
 @inject IPageLayout PageLayout
 @{
@@ -33,7 +35,7 @@
     <abp-card-body>
         <abp-dynamic-form abp-model="ConsumeGiftCard" data-ajaxForm="true" asp-page="Consume">
             <abp-form-content />
-            <abp-modal-footer buttons="@AbpModalButtons.Save"></abp-modal-footer>
+            <abp-modal-footer buttons="(@AbpModalButtons.Save)"></abp-modal-footer>
         </abp-dynamic-form>
     </abp-card-body>
 </abp-card>

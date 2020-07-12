@@ -1,6 +1,6 @@
 $(function () {
 
-    var l = abp.localization.getResource('GiftCardManagement');
+    var l = abp.localization.getResource('EasyAbpGiftCardManagement');
 
     var service = easyAbp.giftCardManagement.giftCards.giftCard;
     var createModal = new abp.ModalManager(abp.appPath + 'GiftCardManagement/GiftCards/GiftCard/CreateModal');
@@ -25,12 +25,14 @@ $(function () {
                         [
                             {
                                 text: l('Edit'),
+                                visible: abp.auth.isGranted('EasyAbp.GiftCardManagement.GiftCard.Update'),
                                 action: function (data) {
                                     editModal.open({ id: data.record.id });
                                 }
                             },
                             {
                                 text: l('Delete'),
+                                visible: abp.auth.isGranted('EasyAbp.GiftCardManagement.GiftCard.Delete'),
                                 confirmMessage: function (data) {
                                     return l('GiftCardDeletionConfirmationMessage', data.record.id);
                                 },

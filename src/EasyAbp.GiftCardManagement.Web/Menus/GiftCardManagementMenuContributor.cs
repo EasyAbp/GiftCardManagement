@@ -1,16 +1,10 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using EasyAbp.GiftCardManagement.Authorization;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Localization;
 using EasyAbp.GiftCardManagement.Localization;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Localization;
-using EasyAbp.GiftCardManagement.Localization;
-using Microsoft.AspNetCore.Authorization;
 using Volo.Abp.UI.Navigation;
 
-namespace EasyAbp.GiftCardManagement.Web
+namespace EasyAbp.GiftCardManagement.Web.Menus
 {
     public class GiftCardManagementMenuContributor : IMenuContributor
     {
@@ -26,19 +20,19 @@ namespace EasyAbp.GiftCardManagement.Web
         {
             var l = context.GetLocalizer<GiftCardManagementResource>();            //Add main menu items.
 
-            var menuItem = new ApplicationMenuItem("EasyAbpGiftCardManagement", l["Menu:GiftCardManagement"]);
+            var menuItem = new ApplicationMenuItem(GiftCardManagementMenus.Prefix, l["Menu:GiftCardManagement"]);
             
             if (await context.IsGrantedAsync(GiftCardManagementPermissions.GiftCardTemplates.Default))
             {
                 menuItem.AddItem(
-                    new ApplicationMenuItem("EasyAbpGiftCardManagementGiftCardTemplate", l["Menu:GiftCardTemplate"], "/GiftCardManagement/GiftCardTemplates/GiftCardTemplate")
+                    new ApplicationMenuItem(GiftCardManagementMenus.GiftCardTemplate, l["Menu:GiftCardTemplate"], "/GiftCardManagement/GiftCardTemplates/GiftCardTemplate")
                 );
             }
             
             if (await context.IsGrantedAsync(GiftCardManagementPermissions.GiftCards.Consume))
             {
                 menuItem.AddItem(
-                    new ApplicationMenuItem("EasyAbpGiftCardManagementGiftCardConsumption", l["Menu:GiftCardConsumption"], "/GiftCardManagement/GiftCards/GiftCard/Consume")
+                    new ApplicationMenuItem(GiftCardManagementMenus.GiftCardConsumption, l["Menu:GiftCardConsumption"], "/GiftCardManagement/GiftCards/GiftCard/Consume")
                 );
             }
 

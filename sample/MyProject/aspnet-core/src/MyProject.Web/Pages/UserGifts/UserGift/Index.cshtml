@@ -1,7 +1,9 @@
 @page
+@using Microsoft.AspNetCore.Mvc.Localization
+@using MyProject.Localization
 @using MyProject.Web.Pages.UserGifts.UserGift
 @using Volo.Abp.AspNetCore.Mvc.UI.Layout
-@inherits MyProject.Web.Pages.MyProjectPage
+@inject IHtmlLocalizer<MyProjectResource> L
 @model IndexModel
 @inject IPageLayout PageLayout
 @{

@@ -87,10 +87,6 @@ namespace MyProject.Web
             
             Configure<AbpAspNetCoreMvcOptions>(options =>
             {
-                options.ConventionalControllers.Create(typeof(GiftCardManagementApplicationModule).Assembly, setting =>
-                {
-                    setting.RootPath = "giftCard";
-                });
             });
         }
 

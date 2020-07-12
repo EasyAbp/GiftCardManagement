@@ -9,7 +9,7 @@ namespace EasyAbp.GiftCardManagement
         typeof(AbpHttpClientModule))]
     public class GiftCardManagementHttpApiClientModule : AbpModule
     {
-        public const string RemoteServiceName = "GiftCardManagement";
+        public const string RemoteServiceName = "EasyAbpGiftCardManagement";
 
         public override void ConfigureServices(ServiceConfigurationContext context)
         {

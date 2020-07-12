@@ -1,6 +1,8 @@
 @page
-@inherits MyProject.Web.Pages.MyProjectPage
+@using Microsoft.AspNetCore.Mvc.Localization
+@using MyProject.Localization
 @using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
+@inject IHtmlLocalizer<MyProjectResource> L
 @model MyProject.Web.Pages.Gifts.Gift.EditModalModel
 @{
     Layout = null;

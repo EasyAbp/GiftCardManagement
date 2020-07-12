@@ -4,7 +4,7 @@ namespace EasyAbp.GiftCardManagement.Authorization
 {
     public class GiftCardManagementPermissions
     {
-        public const string GroupName = "GiftCardManagement";
+        public const string GroupName = "EasyAbp.GiftCardManagement";
 
         public class GiftCards
         {

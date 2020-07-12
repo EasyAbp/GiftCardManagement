@@ -1,8 +1,10 @@
 @page
+@using Microsoft.AspNetCore.Mvc.Localization
+@using MyProject.Localization
 @using MyProject.Web.Pages.Gifts.Gift
 @using Volo.Abp.AspNetCore.Mvc.UI.Layout
-@inherits MyProject.Web.Pages.MyProjectPage
 @model IndexModel
+@inject IHtmlLocalizer<MyProjectResource> L
 @inject IPageLayout PageLayout
 @{
     PageLayout.Content.Title = L["Gift"].Value;

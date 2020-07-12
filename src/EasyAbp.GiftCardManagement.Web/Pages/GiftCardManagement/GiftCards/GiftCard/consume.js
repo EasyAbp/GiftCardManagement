@@ -1,6 +1,6 @@
 $(function () {
 
-    var l = abp.localization.getResource('GiftCardManagement');
+    var l = abp.localization.getResource('EasyAbpGiftCardManagement');
 
     var service = easyAbp.giftCardManagement.giftCards.giftCard;
 

@@ -2,7 +2,7 @@
 
 namespace EasyAbp.GiftCardManagement.Localization
 {
-    [LocalizationResourceName("GiftCardManagement")]
+    [LocalizationResourceName("EasyAbpGiftCardManagement")]
     public class GiftCardManagementResource
     {
         

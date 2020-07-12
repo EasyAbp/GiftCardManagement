@@ -1,6 +1,8 @@
 @page
-@inherits EasyAbp.GiftCardManagement.Web.Pages.GiftCardManagementPage
+@using EasyAbp.GiftCardManagement.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
 @using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
+@inject IHtmlLocalizer<GiftCardManagementResource> L
 @model EasyAbp.GiftCardManagement.Web.Pages.GiftCardManagement.GiftCards.GiftCard.CreateBatchModalModel
 @{
     Layout = null;
