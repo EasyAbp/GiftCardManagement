@@ -12,12 +12,6 @@ namespace EasyAbp.GiftCardManagement
         )]
     public class GiftCardManagementApplicationContractsModule : AbpModule
     {
-        public override void ConfigureServices(ServiceConfigurationContext context)
-        {
-            Configure<AbpVirtualFileSystemOptions>(options =>
-            {
-                options.FileSets.AddEmbedded<GiftCardManagementApplicationContractsModule>("EasyAbp.GiftCardManagement");
-            });
-        }
+
     }
 }

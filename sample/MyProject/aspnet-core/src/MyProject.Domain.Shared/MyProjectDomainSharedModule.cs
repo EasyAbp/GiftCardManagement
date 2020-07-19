@@ -32,7 +32,7 @@ namespace MyProject
         {
             Configure<AbpVirtualFileSystemOptions>(options =>
             {
-                options.FileSets.AddEmbedded<MyProjectDomainSharedModule>("MyProject");
+                options.FileSets.AddEmbedded<MyProjectDomainSharedModule>();
             });
 
             Configure<AbpLocalizationOptions>(options =>

@@ -44,7 +44,7 @@ namespace EasyAbp.GiftCardManagement.Web
 
             Configure<AbpVirtualFileSystemOptions>(options =>
             {
-                options.FileSets.AddEmbedded<GiftCardManagementWebModule>("EasyAbp.GiftCardManagement.Web");
+                options.FileSets.AddEmbedded<GiftCardManagementWebModule>();
             });
 
             context.Services.AddAutoMapperObjectMapper<GiftCardManagementWebModule>();
