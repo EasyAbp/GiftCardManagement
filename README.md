@@ -30,9 +30,7 @@ An abp application module where you can create gift cards and your app user can 
     1. Install `EasyAbp.GiftCardManagement.MongoDB` NuGet package to `MyProject.MongoDB` project and add `[DependsOn(GiftCardManagementMongoDbModule)]` attribute to the module.
 
     1. (Optional) If you need MVC UI, install `EasyAbp.GiftCardManagement.Web` NuGet package to `MyProject.Web` project and add `[DependsOn(GiftCardManagementWebModule)]` attribute to the module.
-    
-    1. Add `options.ConventionalControllers.Create(typeof(GiftCardManagementApplicationModule).Assembly);` to `Configure<AbpAspNetCoreMvcOptions>(options => { ... });` in your host module (It is usually Web project or HttpApi.Host project).
-    
+
     1. Add `builder.ConfigureGiftCardManagement();` to OnModelCreating method in `MyProjectMigrationsDbContext.cs`.
 
     1. Add EF Core migrations and update your database. See: [ABP document](https://docs.abp.io/en/abp/latest/Tutorials/Part-1?UI=MVC#add-new-migration-update-the-database).
