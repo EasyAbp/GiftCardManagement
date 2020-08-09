@@ -7,7 +7,7 @@ namespace EasyAbp.GiftCardManagement.GiftCardTemplates
 {
     public class GiftCardTemplateRepository : EfCoreRepository<IGiftCardManagementDbContext, GiftCardTemplate, Guid>, IGiftCardTemplateRepository
     {
-        public GiftCardTemplateRepository(IDbContextProvider<GiftCardManagementDbContext> dbContextProvider) : base(dbContextProvider)
+        public GiftCardTemplateRepository(IDbContextProvider<IGiftCardManagementDbContext> dbContextProvider) : base(dbContextProvider)
         {
         }
     }

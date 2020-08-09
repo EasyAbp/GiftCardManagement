@@ -5,7 +5,7 @@ using Volo.Abp.EntityFrameworkCore;
 
 namespace MyProject.UserGifts
 {
-    public class UserGiftRepository : EfCoreRepository<IMyProjectDbContext, UserGift, Guid>, IUserGiftRepository
+    public class UserGiftRepository : EfCoreRepository<MyProjectDbContext, UserGift, Guid>, IUserGiftRepository
     {
         public UserGiftRepository(IDbContextProvider<MyProjectDbContext> dbContextProvider) : base(dbContextProvider)
         {
