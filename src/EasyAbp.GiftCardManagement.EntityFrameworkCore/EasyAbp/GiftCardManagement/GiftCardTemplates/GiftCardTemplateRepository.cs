@@ -5,7 +5,7 @@ using Volo.Abp.EntityFrameworkCore;
 
 namespace EasyAbp.GiftCardManagement.GiftCardTemplates
 {
-    public class GiftCardTemplateRepository : EfCoreRepository<GiftCardManagementDbContext, GiftCardTemplate, Guid>, IGiftCardTemplateRepository
+    public class GiftCardTemplateRepository : EfCoreRepository<IGiftCardManagementDbContext, GiftCardTemplate, Guid>, IGiftCardTemplateRepository
     {
         public GiftCardTemplateRepository(IDbContextProvider<GiftCardManagementDbContext> dbContextProvider) : base(dbContextProvider)
         {

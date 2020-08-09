@@ -10,7 +10,7 @@ using Volo.Abp.EntityFrameworkCore;
 
 namespace MyProject.Gifts
 {
-    public class GiftRepository : EfCoreRepository<MyProjectDbContext, Gift, Guid>, IGiftRepository
+    public class GiftRepository : EfCoreRepository<IMyProjectDbContext, Gift, Guid>, IGiftRepository
     {
         public GiftRepository(IDbContextProvider<MyProjectDbContext> dbContextProvider) : base(dbContextProvider)
         {
