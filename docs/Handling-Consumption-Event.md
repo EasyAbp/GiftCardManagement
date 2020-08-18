@@ -2,7 +2,7 @@
 When a gift card is consumed, it will publish a distributed event with `GiftCardConsumedEto`, so other modules can provide services to the consumer by handling this event.
 
 ## How to Handle?
-We have a sample to show you how to handle the event. See: [GiftCardConsumedEventHandler](../sample/MyProject/aspnet-core/src/MyProject.Domain/UserGifts/GiftCardConsumedEventHandler.cs).
+We have a sample to show you how to handle the event. See: [GiftCardConsumedEventHandler](https://github.com/EasyAbp/GiftCardManagement/blob/master/sample/MyProject/aspnet-core/src/MyProject.Domain/UserGifts/GiftCardConsumedEventHandler.cs).
 
 ## Advanced Usage
 Sometimes your case is complicated.
