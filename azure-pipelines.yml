@@ -9,6 +9,7 @@ schedules:
   branches:
     include:
     - master
+  always: boolean
 
 trigger:
 - master
