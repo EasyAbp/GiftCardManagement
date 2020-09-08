@@ -21,9 +21,9 @@ stages:
 - stage: Stage1
   jobs:
   - job: Job1
-pool:
-  vmImage: 'ubuntu-latest'
-steps:
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
     - task: UseDotNet@2
       inputs:
         packageType: 'sdk'
@@ -45,6 +45,7 @@ steps:
       inputs:
        script: |
         dotnet publish
+
 
 - stage: Stage2
   jobs:
@@ -72,56 +73,56 @@ steps:
         SqlPassword: $(SqlPassword)
        continueOnError: true
 
+
 - stage: Stage3
   jobs:
   - job: Job1
     pool:
       vmImage: ubuntu-latest
     steps:
+    - task: UseDotNet@2
+      inputs:
+        packageType: 'sdk'
+        version: '3.x'
+    - task: CmdLine@2
+      displayName: 'install dotnet-ef'
+      inputs:
+        script: 'dotnet tool install -g dotnet-ef'
 
-- task: UseDotNet@2
-  inputs:
-    packageType: 'sdk'
-    version: '3.x'
-- task: CmdLine@2
-  displayName: 'install dotnet-ef'
-  inputs:
-    script: 'dotnet tool install -g dotnet-ef'
+    - task: CmdLine@2
+      inputs:
+        script: |
+          echo commands
+          sed -i '0,/Default[^,]*/s//$(ConnectionStrings)"/g' sample/MyProject/aspnet-core/src/MyProject.Web/appsettings.json
+          echo commands executed
 
-- task: CmdLine@2
-  inputs:
-    script: |
-      echo commands
-      sed -i '0,/Default[^,]*/s//$(ConnectionStrings)"/g' sample/MyProject/aspnet-core/src/MyProject.Web/appsettings.json
-      echo commands executed
+    - task: CmdLine@2
+      inputs:
+        script: |
+          echo commands
+          sed -i '0,/Default[^,]*/s//$(ConnectionStrings)"/g' sample/MyProject/aspnet-core/src/MyProject.DbMigrator/appsettings.json
+          echo commands executed
 
-- task: CmdLine@2
-  inputs:
-    script: |
-      echo commands
-      sed -i '0,/Default[^,]*/s//$(ConnectionStrings)"/g' sample/MyProject/aspnet-core/src/MyProject.DbMigrator/appsettings.json
-      echo commands executed
+    - task: CmdLine@2
+      displayName: 'update database'
+      inputs:
+        script: | 
+          dotnet ef database update --project sample/MyProject/aspnet-core/src/MyProject.EntityFrameworkCore.DbMigrations/MyProject.EntityFrameworkCore.DbMigrations.csproj -s sample/MyProject/aspnet-core/src/MyProject.Web/MyProject.Web.csproj
 
-- task: CmdLine@2
-  displayName: 'update database'
-  inputs:
-    script: | 
-       dotnet ef database update --project sample/MyProject/aspnet-core/src/MyProject.EntityFrameworkCore.DbMigrations/MyProject.EntityFrameworkCore.DbMigrations.csproj -s sample/MyProject/aspnet-core/src/MyProject.Web/MyProject.Web.csproj
+    - task: CmdLine@2
+      displayName: 'DbMigrator'
+      inputs:
+        script: |
+          cd sample/MyProject/aspnet-core/src/MyProject.DbMigrator
+          
+          dotnet run
 
-- task: CmdLine@2
-  displayName: 'DbMigrator'
-  inputs:
-    script: |
-      cd sample/MyProject/aspnet-core/src/MyProject.DbMigrator
-      
-      dotnet run
-
-- task: Docker@2
-  displayName: 'build and push docker'
-  inputs:
-    containerRegistry: $(DockerRegistry)
-    repository: $(repository)
-    command: 'buildAndPush'
-    Dockerfile: 'sample/MyProject/aspnet-core/src/MyProject.Web/Dockerfile'
-    buildContext: .
-    tags: 'latest'
+    - task: Docker@2
+      displayName: 'build and push docker'
+      inputs:
+        containerRegistry: $(DockerRegistry)
+        repository: $(repository)
+        command: 'buildAndPush'
+        Dockerfile: 'sample/MyProject/aspnet-core/src/MyProject.Web/Dockerfile'
+        buildContext: .
+        tags: 'latest'
