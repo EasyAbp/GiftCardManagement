@@ -12,17 +12,73 @@ schedules:
   always: true
 
 trigger:
-- master
+  branches:
+   include:
+   - master
 
+stages:
+
+- stage: Stage1
+  jobs:
+  - job: Job1
 pool:
   vmImage: 'ubuntu-latest'
-
-variables:
-  solution: '**/*.sln'
-  buildPlatform: 'Any CPU'
-  buildConfiguration: 'Release'
-
 steps:
+    - task: UseDotNet@2
+      inputs:
+        packageType: 'sdk'
+        version: '3.x'
+
+    - task: DotNetCoreCLI@2
+      displayName: 'restore'
+      inputs:
+        command: 'restore'
+        feedsToUse: 'select'
+
+    - task: DotNetCoreCLI@2
+      displayName: 'build'
+      inputs:
+        command: 'build'
+  
+    - task: CmdLine@2
+      displayName: 'publish'
+      inputs:
+       script: |
+        dotnet publish
+
+- stage: Stage2
+  jobs:
+  - job: Job1
+    pool:
+      vmImage: windows-2019
+    steps:
+     - task: SqlDacpacDeploymentOnMachineGroup@0
+       displayName: 'drop database'
+       inputs:
+        TaskType: 'sqlInline'
+        InlineSql: |
+          DECLARE @SQL VARCHAR(MAX);
+          SET @SQL=''
+          SELECT @SQL=@SQL+'; KILL '+RTRIM(SPID)
+          FROM master..sysprocesses
+          WHERE dbid=DB_ID('MyProject');
+          EXEC(@SQL);
+          
+          drop DATABASE  MyProject
+        ServerName: $(ServerName)
+        DatabaseName: $(DatabaseName)
+        AuthScheme: 'sqlServerAuthentication'
+        SqlUsername: $(SqlUsername)
+        SqlPassword: $(SqlPassword)
+       continueOnError: true
+
+- stage: Stage3
+  jobs:
+  - job: Job1
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+
 - task: UseDotNet@2
   inputs:
     packageType: 'sdk'
@@ -46,29 +102,6 @@ steps:
       sed -i '0,/Default[^,]*/s//$(ConnectionStrings)"/g' sample/MyProject/aspnet-core/src/MyProject.DbMigrator/appsettings.json
       echo commands executed
 
-- task: DotNetCoreCLI@2
-  displayName: 'restore'
-  inputs:
-    command: 'restore'
-    feedsToUse: 'select'
-
-- task: DotNetCoreCLI@2
-  displayName: 'build'
-  inputs:
-    command: 'build'
-    
-- task: CmdLine@2
-  displayName: 'publish'
-  inputs:
-   script: |
-    dotnet publish
-
-- task: CmdLine@2
-  displayName: 'drop database'
-  inputs:
-    script: |
-      dotnet ef database drop --project sample/MyProject/aspnet-core/src/MyProject.EntityFrameworkCore.DbMigrations/MyProject.EntityFrameworkCore.DbMigrations.csproj -s sample/MyProject/aspnet-core/src/MyProject.Web/MyProject.Web.csproj -f
-      
 - task: CmdLine@2
   displayName: 'update database'
   inputs:
