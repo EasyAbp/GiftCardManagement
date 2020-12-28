@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using EasyAbp.GiftCardManagement.GiftCardTemplates;
+using Volo.Abp.Data;
 using Volo.Abp.Domain.Entities.Events;
 using Volo.Abp.Domain.Services;
 using Volo.Abp.EventBus.Distributed;
@@ -44,7 +45,7 @@ namespace EasyAbp.GiftCardManagement.GiftCards
             return giftCard;
         }
 
-        public virtual async Task ConsumeAsync(GiftCard giftCard, Guid? userId, Dictionary<string, object> extraProperties = null)
+        public virtual async Task ConsumeAsync(GiftCard giftCard, Guid? userId, ExtraPropertyDictionary extraProperties = null)
         {
             var template = await _giftCardTemplateRepository.GetAsync(giftCard.GiftCardTemplateId);
             

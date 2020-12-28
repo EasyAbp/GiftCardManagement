@@ -4,7 +4,7 @@ using Volo.Abp.Application.Dtos;
 
 namespace EasyAbp.GiftCardManagement.GiftCardTemplates.Dtos
 {
-    public class GiftCardTemplateDto : FullAuditedEntityDto<Guid>
+    public class GiftCardTemplateDto : ExtensibleFullAuditedEntityDto<Guid>
     {
         public string Name { get; set; }
 
@@ -15,7 +15,5 @@ namespace EasyAbp.GiftCardManagement.GiftCardTemplates.Dtos
         public bool TenantAllowed { get; set; }
         
         public bool AnonymousConsumptionAllowed { get; set; }
-        
-        public Dictionary<string, object> ExtraProperties { get; set; }
     }
 }

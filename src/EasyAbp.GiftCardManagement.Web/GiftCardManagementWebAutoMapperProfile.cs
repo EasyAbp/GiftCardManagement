@@ -6,6 +6,7 @@ using EasyAbp.GiftCardManagement.Web.Pages.GiftCardManagement.GiftCards.GiftCard
 using EasyAbp.GiftCardManagement.Web.Pages.GiftCardManagement.GiftCardTemplates.GiftCardTemplate.ViewModels;
 using Newtonsoft.Json;
 using Volo.Abp.AutoMapper;
+using Volo.Abp.Data;
 
 namespace EasyAbp.GiftCardManagement.Web
 {
@@ -22,7 +23,7 @@ namespace EasyAbp.GiftCardManagement.Web
             CreateMap<CreateUpdateGiftCardTemplateViewModel, CreateUpdateGiftCardTemplateDto>(MemberList.Source)
                 .ForMember(dto => dto.ExtraProperties,
                     opt => opt.MapFrom(src =>
-                        JsonConvert.DeserializeObject<Dictionary<string, object>>(src.ExtraProperties)));
+                        JsonConvert.DeserializeObject<ExtraPropertyDictionary>(src.ExtraProperties)));
             CreateMap<GiftCardDto, CreateGiftCardViewModel>().Ignore(model => model.Password);
             CreateMap<GiftCardDto, UpdateGiftCardDto>().Ignore(dto => dto.Password);
             CreateMap<CreateGiftCardViewModel, CreateGiftCardDto>(MemberList.Source);

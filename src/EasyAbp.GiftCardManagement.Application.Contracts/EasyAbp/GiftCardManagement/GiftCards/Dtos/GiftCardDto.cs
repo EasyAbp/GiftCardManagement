@@ -4,7 +4,7 @@ using Volo.Abp.Application.Dtos;
 
 namespace EasyAbp.GiftCardManagement.GiftCards.Dtos
 {
-    public class GiftCardDto : FullAuditedEntityDto<Guid>
+    public class GiftCardDto : ExtensibleFullAuditedEntityDto<Guid>
     {
         public Guid GiftCardTemplateId { get; set; }
 
@@ -15,7 +15,5 @@ namespace EasyAbp.GiftCardManagement.GiftCards.Dtos
         public Guid? ConsumptionUserId { get; set; }
 
         public DateTime? ConsumptionTime { get; set; }
-        
-        public Dictionary<string, object> ExtraProperties { get; set; }
     }
 }

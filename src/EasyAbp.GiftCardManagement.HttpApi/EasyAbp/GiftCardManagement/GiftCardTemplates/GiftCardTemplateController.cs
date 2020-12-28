@@ -8,7 +8,7 @@ using Volo.Abp.Application.Dtos;
 namespace EasyAbp.GiftCardManagement.GiftCardTemplates
 {
     [RemoteService(Name = "EasyAbpGiftCardManagement")]
-    [Route("/api/giftCardManagement/giftCardTemplate")]
+    [Route("/api/gift-card-management/gift-card-template")]
     public class GiftCardTemplateController : GiftCardManagementController, IGiftCardTemplateAppService
     {
         private readonly IGiftCardTemplateAppService _service;

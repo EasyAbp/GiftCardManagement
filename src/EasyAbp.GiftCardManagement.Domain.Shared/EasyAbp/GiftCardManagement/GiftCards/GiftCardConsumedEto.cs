@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Volo.Abp.Data;
 
 namespace EasyAbp.GiftCardManagement.GiftCards
 {
@@ -8,11 +9,11 @@ namespace EasyAbp.GiftCardManagement.GiftCards
     {
         public string GiftCardTemplateName { get; set; }
         
-        public Dictionary<string, object> GiftCardTemplateExtraProperties { get; set; }
+        public ExtraPropertyDictionary GiftCardTemplateExtraProperties { get; set; }
         
         public string GiftCardCode { get; set; }
         
-        public Dictionary<string, object> GiftCardExtraProperties { get; set; }
+        public ExtraPropertyDictionary GiftCardExtraProperties { get; set; }
         
         public Guid? ConsumptionUserId { get; set; }
     }

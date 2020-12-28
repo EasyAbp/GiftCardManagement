@@ -46,14 +46,14 @@ namespace EasyAbp.GiftCardManagement.GiftCards
             Expiration = expiration;
         }
 
-        public void Consume(IClock clock, Guid? userId, Dictionary<string, object> extraProperties = null)
+        public void Consume(IClock clock, Guid? userId, ExtraPropertyDictionary extraProperties = null)
         {
             CheckUsable(clock);
             
             ConsumptionTime = clock.Now;
             ConsumptionUserId = userId;
             
-            ExtraProperties = new Dictionary<string, object>();
+            ExtraProperties = new ExtraPropertyDictionary();
 
             if (extraProperties.IsNullOrEmpty())
             {

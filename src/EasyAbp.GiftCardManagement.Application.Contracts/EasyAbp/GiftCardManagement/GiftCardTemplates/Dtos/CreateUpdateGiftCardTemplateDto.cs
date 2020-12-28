@@ -2,10 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using Volo.Abp.Data;
 
 namespace EasyAbp.GiftCardManagement.GiftCardTemplates.Dtos
 {
-    public class CreateUpdateGiftCardTemplateDto
+    public class CreateUpdateGiftCardTemplateDto : IHasExtraProperties
     {
         [Required]
         [DisplayName("GiftCardTemplateName")]
@@ -25,6 +26,6 @@ namespace EasyAbp.GiftCardManagement.GiftCardTemplates.Dtos
         public bool AnonymousConsumptionAllowed { get; set; }
         
         [DisplayName("GiftCardTemplateExtraProperties")]
-        public Dictionary<string, object> ExtraProperties { get; set; }
+        public ExtraPropertyDictionary ExtraProperties { get; set; }
     }
 }
