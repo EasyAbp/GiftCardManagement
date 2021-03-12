@@ -18,7 +18,7 @@ namespace MyProject.Gifts
 
         public async Task<Gift> GetAsync(string name, CancellationToken cancellationToken = default)
         {
-            var gift = await GetQueryable().Where(g => g.Name.Equals(name))
+            var gift = await (await GetQueryableAsync()).Where(g => g.Name.Equals(name))
                 .FirstOrDefaultAsync(cancellationToken: cancellationToken);
 
             if (gift == null)

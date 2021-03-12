@@ -21,7 +21,7 @@ namespace EasyAbp.GiftCardManagement.GiftCards
         public virtual async Task<GiftCard> FindAsync(string code, string passwordHash,
             CancellationToken cancellationToken = default)
         {
-            return await GetQueryable().Where(c => c.Code == code && c.PasswordHash == passwordHash)
+            return await (await GetQueryableAsync()).Where(c => c.Code == code && c.PasswordHash == passwordHash)
                 .FirstOrDefaultAsync(cancellationToken: cancellationToken);
         }
 

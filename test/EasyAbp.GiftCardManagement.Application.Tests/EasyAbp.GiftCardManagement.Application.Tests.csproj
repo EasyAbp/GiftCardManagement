@@ -10,7 +10,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\EasyAbp.GiftCardManagement.Application\EasyAbp.GiftCardManagement.Application.csproj" />
     <ProjectReference Include="..\EasyAbp.GiftCardManagement.Domain.Tests\EasyAbp.GiftCardManagement.Domain.Tests.csproj" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.6.1" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.3" />
   </ItemGroup>
 
 </Project>
