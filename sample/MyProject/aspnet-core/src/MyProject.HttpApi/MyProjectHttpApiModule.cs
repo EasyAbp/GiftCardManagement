@@ -4,6 +4,7 @@ using Volo.Abp.FeatureManagement;
 using Volo.Abp.Identity;
 using Volo.Abp.Modularity;
 using Volo.Abp.PermissionManagement.HttpApi;
+using Volo.Abp.SettingManagement;
 using Volo.Abp.TenantManagement;
 
 namespace MyProject
@@ -15,6 +16,7 @@ namespace MyProject
         typeof(AbpPermissionManagementHttpApiModule),
         typeof(AbpTenantManagementHttpApiModule),
         typeof(AbpFeatureManagementHttpApiModule),
+        typeof(AbpSettingManagementHttpApiModule),
         typeof(GiftCardManagementHttpApiModule)
         )]
     public class MyProjectHttpApiModule : AbpModule

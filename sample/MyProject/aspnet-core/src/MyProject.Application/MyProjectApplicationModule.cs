@@ -5,6 +5,7 @@ using Volo.Abp.FeatureManagement;
 using Volo.Abp.Identity;
 using Volo.Abp.Modularity;
 using Volo.Abp.PermissionManagement;
+using Volo.Abp.SettingManagement;
 using Volo.Abp.TenantManagement;
 
 namespace MyProject
@@ -17,6 +18,7 @@ namespace MyProject
         typeof(AbpPermissionManagementApplicationModule),
         typeof(AbpTenantManagementApplicationModule),
         typeof(AbpFeatureManagementApplicationModule),
+        typeof(AbpSettingManagementApplicationModule),
         typeof(GiftCardManagementApplicationModule)
         )]
     public class MyProjectApplicationModule : AbpModule
