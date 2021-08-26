@@ -42,7 +42,7 @@
     <ProjectReference Include="..\..\..\..\..\src\EasyAbp.GiftCardManagement.Web\EasyAbp.GiftCardManagement.Web.csproj" />
     <ProjectReference Include="..\MyProject.Application\MyProject.Application.csproj" />
     <ProjectReference Include="..\MyProject.HttpApi\MyProject.HttpApi.csproj" />
-    <ProjectReference Include="..\MyProject.EntityFrameworkCore.DbMigrations\MyProject.EntityFrameworkCore.DbMigrations.csproj" />
+    <ProjectReference Include="..\MyProject.EntityFrameworkCore\MyProject.EntityFrameworkCore.csproj" />
     <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic" Version="$(AbpVersion)" />
     <PackageReference Include="Volo.Abp.Autofac" Version="$(AbpVersion)" />
     <PackageReference Include="Volo.Abp.AspNetCore.Authentication.JwtBearer" Version="$(AbpVersion)" />

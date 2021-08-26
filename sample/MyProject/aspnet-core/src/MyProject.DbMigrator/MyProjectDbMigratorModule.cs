@@ -7,7 +7,7 @@ namespace MyProject.DbMigrator
 {
     [DependsOn(
         typeof(AbpAutofacModule),
-        typeof(MyProjectEntityFrameworkCoreDbMigrationsModule),
+        typeof(MyProjectEntityFrameworkCoreModule),
         typeof(MyProjectApplicationContractsModule)
         )]
     public class MyProjectDbMigratorModule : AbpModule

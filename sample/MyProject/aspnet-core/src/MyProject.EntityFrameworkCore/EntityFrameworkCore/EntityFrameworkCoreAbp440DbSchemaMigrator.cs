@@ -20,14 +20,14 @@ namespace MyProject.EntityFrameworkCore
 
         public async Task MigrateAsync()
         {
-            /* We intentionally resolving the MyProjectMigrationsDbContext
+            /* We intentionally resolving the MyProjectDbContext
              * from IServiceProvider (instead of directly injecting it)
              * to properly get the connection string of the current tenant in the
              * current scope.
              */
 
             await _serviceProvider
-                .GetRequiredService<MyProjectMigrationsDbContext>()
+                .GetRequiredService<MyProjectDbContext>()
                 .Database
                 .MigrateAsync();
         }

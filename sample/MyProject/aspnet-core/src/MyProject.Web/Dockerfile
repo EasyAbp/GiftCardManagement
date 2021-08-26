@@ -18,7 +18,6 @@ COPY ["sample/MyProject/aspnet-core/src/MyProject.Application/MyProject.Applicat
 COPY ["sample/MyProject/aspnet-core/src/MyProject.Domain/MyProject.Domain.csproj", "sample/MyProject/aspnet-core/src/MyProject.Domain/"]
 COPY ["src/EasyAbp.GiftCardManagement.Domain/EasyAbp.GiftCardManagement.Domain.csproj", "src/EasyAbp.GiftCardManagement.Domain/"]
 COPY ["src/EasyAbp.GiftCardManagement.Application/EasyAbp.GiftCardManagement.Application.csproj", "src/EasyAbp.GiftCardManagement.Application/"]
-COPY ["sample/MyProject/aspnet-core/src/MyProject.EntityFrameworkCore.DbMigrations/MyProject.EntityFrameworkCore.DbMigrations.csproj", "sample/MyProject/aspnet-core/src/MyProject.EntityFrameworkCore.DbMigrations/"]
 COPY ["sample/MyProject/aspnet-core/src/MyProject.EntityFrameworkCore/MyProject.EntityFrameworkCore.csproj", "sample/MyProject/aspnet-core/src/MyProject.EntityFrameworkCore/"]
 COPY ["src/EasyAbp.GiftCardManagement.EntityFrameworkCore/EasyAbp.GiftCardManagement.EntityFrameworkCore.csproj", "src/EasyAbp.GiftCardManagement.EntityFrameworkCore/"]
 COPY ["src/EasyAbp.GiftCardManagement.Web/EasyAbp.GiftCardManagement.Web.csproj", "src/EasyAbp.GiftCardManagement.Web/"]

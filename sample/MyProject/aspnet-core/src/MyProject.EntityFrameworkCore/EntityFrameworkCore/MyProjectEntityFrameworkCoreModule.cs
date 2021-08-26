@@ -45,7 +45,7 @@ namespace MyProject.EntityFrameworkCore
             Configure<AbpDbContextOptions>(options =>
             {
                 /* The main point to change your DBMS.
-                 * See also MyProjectMigrationsDbContextFactory for EF Core tooling. */
+                 * See also MyProjectDbContextFactory for EF Core tooling. */
                 options.UseSqlServer();
             });
         }

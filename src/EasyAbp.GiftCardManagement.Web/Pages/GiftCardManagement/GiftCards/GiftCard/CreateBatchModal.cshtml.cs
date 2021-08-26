@@ -32,7 +32,7 @@ namespace EasyAbp.GiftCardManagement.Web.Pages.GiftCardManagement.GiftCards.Gift
         public virtual async Task<IActionResult> OnPostAsync()
         {
             var dtos = CreateBatchModel.CodesPasswords
-                .Split(Environment.NewLine.ToCharArray(), StringSplitOptions.RemoveEmptyEntries)
+                .Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries)
                 .Select(s => s.Split(' ', 2, StringSplitOptions.RemoveEmptyEntries))
                 .Select(s => new CreateGiftCardDto
                 {

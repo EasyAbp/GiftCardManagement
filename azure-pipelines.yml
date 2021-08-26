@@ -107,7 +107,7 @@ stages:
       displayName: 'update database'
       inputs:
         script: | 
-          dotnet ef database update --project sample/MyProject/aspnet-core/src/MyProject.EntityFrameworkCore.DbMigrations/MyProject.EntityFrameworkCore.DbMigrations.csproj -s sample/MyProject/aspnet-core/src/MyProject.Web/MyProject.Web.csproj
+          dotnet ef database update --project sample/MyProject/aspnet-core/src/MyProject.EntityFrameworkCore/MyProject.EntityFrameworkCore.csproj -s sample/MyProject/aspnet-core/src/MyProject.Web/MyProject.Web.csproj
 
     - task: CmdLine@2
       displayName: 'DbMigrator'
