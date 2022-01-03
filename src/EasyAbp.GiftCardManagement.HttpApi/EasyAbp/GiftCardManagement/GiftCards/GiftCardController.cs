@@ -8,7 +8,7 @@ using Volo.Abp.Application.Dtos;
 
 namespace EasyAbp.GiftCardManagement.GiftCards
 {
-    [RemoteService(Name = "EasyAbpGiftCardManagement")]
+    [RemoteService(Name = GiftCardManagementRemoteServiceConsts.RemoteServiceName)]
     [Route("/api/gift-card-management/gift-card")]
     public class GiftCardController : GiftCardManagementController, IGiftCardAppService
     {
@@ -21,47 +21,47 @@ namespace EasyAbp.GiftCardManagement.GiftCards
 
         [HttpGet]
         [Route("{id}")]
-        public Task<GiftCardDto> GetAsync(Guid id)
+        public virtual Task<GiftCardDto> GetAsync(Guid id)
         {
             return _service.GetAsync(id);
         }
 
         [HttpGet]
-        public Task<PagedResultDto<GiftCardDto>> GetListAsync(GetGiftCardListDto input)
+        public virtual Task<PagedResultDto<GiftCardDto>> GetListAsync(GetGiftCardListDto input)
         {
             return _service.GetListAsync(input);
         }
 
         [HttpPost]
-        public Task<GiftCardDto> CreateAsync(CreateGiftCardDto input)
+        public virtual Task<GiftCardDto> CreateAsync(CreateGiftCardDto input)
         {
             return _service.CreateAsync(input);
         }
 
         [HttpPut]
         [Route("{id}")]
-        public Task<GiftCardDto> UpdateAsync(Guid id, UpdateGiftCardDto input)
+        public virtual Task<GiftCardDto> UpdateAsync(Guid id, UpdateGiftCardDto input)
         {
             return _service.UpdateAsync(id, input);
         }
 
         [HttpDelete]
         [Route("{id}")]
-        public Task DeleteAsync(Guid id)
+        public virtual Task DeleteAsync(Guid id)
         {
             return _service.DeleteAsync(id);
         }
 
         [HttpPost]
         [Route("consume")]
-        public Task ConsumeAsync(ConsumeGiftCardDto input)
+        public virtual Task ConsumeAsync(ConsumeGiftCardDto input)
         {
             return _service.ConsumeAsync(input);
         }
 
         [HttpPost]
         [Route("batch")]
-        public Task<IEnumerable<GiftCardDto>> CreateBatchAsync(IEnumerable<CreateGiftCardDto> input)
+        public virtual Task<IEnumerable<GiftCardDto>> CreateBatchAsync(IEnumerable<CreateGiftCardDto> input)
         {
             return _service.CreateBatchAsync(input);
         }

@@ -5,7 +5,7 @@ namespace MyProject.Controllers
 {
     /* Inherit your controllers from this class.
      */
-    public abstract class MyProjectController : AbpController
+    public abstract class MyProjectController : AbpControllerBase
     {
         protected MyProjectController()
         {

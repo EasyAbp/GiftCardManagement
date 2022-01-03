@@ -1,9 +1,11 @@
 ﻿using EasyAbp.GiftCardManagement.Localization;
+using Microsoft.AspNetCore.Mvc;
 using Volo.Abp.AspNetCore.Mvc;
 
 namespace EasyAbp.GiftCardManagement
 {
-    public abstract class GiftCardManagementController : AbpController
+    [Area(GiftCardManagementRemoteServiceConsts.ModuleName)]
+    public abstract class GiftCardManagementController : AbpControllerBase
     {
         protected GiftCardManagementController()
         {

@@ -38,9 +38,9 @@ namespace EasyAbp.GiftCardManagement.GiftCards
             _giftCardTemplateRepository = giftCardTemplateRepository;
         }
 
-        protected override IQueryable<GiftCard> CreateFilteredQuery(GetGiftCardListDto input)
+        protected override async Task<IQueryable<GiftCard>> CreateFilteredQueryAsync(GetGiftCardListDto input)
         {
-            return base.CreateFilteredQuery(input)
+            return (await base.CreateFilteredQueryAsync(input))
                 .Where(giftCard => giftCard.GiftCardTemplateId == input.GiftCardTemplateId);
         }
 

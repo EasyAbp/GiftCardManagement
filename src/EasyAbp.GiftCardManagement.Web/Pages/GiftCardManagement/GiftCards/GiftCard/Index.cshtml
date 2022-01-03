@@ -34,7 +34,7 @@
             <abp-column size-md="_6">
                 <abp-card-title>@L["GiftCard"] - @Model.Template.Name</abp-card-title>
             </abp-column>
-            <abp-column size-md="_6" class="text-right">
+            <abp-column size-md="_6" class="text-end">
                 @if (await Authorization.IsGrantedAsync(GiftCardManagementPermissions.GiftCards.Create))
                 {
                     <abp-button id="NewGiftCardButtonInBatch"

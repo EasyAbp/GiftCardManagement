@@ -25,11 +25,12 @@ namespace EasyAbp.GiftCardManagement.GiftCardTemplates
             _repository = repository;
         }
 
-        protected override IQueryable<GiftCardTemplate> CreateFilteredQuery(PagedAndSortedResultRequestDto input)
+        protected override async Task<IQueryable<GiftCardTemplate>> CreateFilteredQueryAsync(
+            PagedAndSortedResultRequestDto input)
         {
             return CurrentTenant.Id.HasValue
-                ? base.CreateFilteredQuery(input).Where(t => t.TenantAllowed)
-                : base.CreateFilteredQuery(input);
+                ? (await base.CreateFilteredQueryAsync(input)).Where(t => t.TenantAllowed)
+                : (await base.CreateFilteredQueryAsync(input));
         }
 
         protected override async Task<GiftCardTemplate> GetEntityByIdAsync(Guid id)

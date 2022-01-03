@@ -12,7 +12,7 @@ using Volo.Abp.VirtualFileSystem;
 namespace EasyAbp.GiftCardManagement.Web
 {
     [DependsOn(
-        typeof(GiftCardManagementHttpApiModule),
+        typeof(GiftCardManagementApplicationContractsModule),
         typeof(AbpAspNetCoreMvcUiThemeSharedModule),
         typeof(AbpAutoMapperModule)
         )]
