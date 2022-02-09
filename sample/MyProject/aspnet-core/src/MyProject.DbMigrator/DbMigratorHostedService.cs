@@ -19,20 +19,20 @@ namespace MyProject.DbMigrator
         
         public async Task StartAsync(CancellationToken cancellationToken)
         {
-            using (var application = AbpApplicationFactory.Create<MyProjectDbMigratorModule>(options =>
+            using (var application = await AbpApplicationFactory.CreateAsync<MyProjectDbMigratorModule>(options =>
             {
                 options.UseAutofac();
                 options.Services.AddLogging(c => c.AddSerilog());
             }))
             {
-                application.Initialize();
+                await application.InitializeAsync();
 
                 await application
                     .ServiceProvider
                     .GetRequiredService<MyProjectDbMigrationService>()
                     .MigrateAsync();
 
-                application.Shutdown();
+                await application.ShutdownAsync();
                 
                 _hostApplicationLifetime.StopApplication();
             }

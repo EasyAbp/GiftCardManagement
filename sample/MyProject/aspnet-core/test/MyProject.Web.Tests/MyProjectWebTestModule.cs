@@ -30,7 +30,7 @@ namespace MyProject
         {
             context.Services.PreConfigure<IMvcBuilder>(builder =>
             {
-                builder.PartManager.ApplicationParts.Add(new AssemblyPart(typeof(MyProjectWebModule).Assembly));
+                builder.PartManager.ApplicationParts.Add(new CompiledRazorAssemblyPart(typeof(MyProjectWebModule).Assembly));
             });
         }
 
