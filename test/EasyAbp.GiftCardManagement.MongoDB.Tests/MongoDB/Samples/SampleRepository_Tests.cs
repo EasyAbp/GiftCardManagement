@@ -1,7 +1,9 @@
 ﻿using EasyAbp.GiftCardManagement.Samples;
+using Xunit;
 
 namespace EasyAbp.GiftCardManagement.MongoDB.Samples
 {
+    [Collection(MongoTestCollection.Name)]
     public class SampleRepository_Tests : SampleRepository_Tests<GiftCardManagementMongoDbTestModule>
     {
         /* Don't write custom repository tests here, instead write to
