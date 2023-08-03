@@ -45,15 +45,16 @@ namespace EasyAbp.GiftCardManagement.GiftCards
             return giftCard;
         }
 
-        public virtual async Task ConsumeAsync(GiftCard giftCard, Guid? userId, ExtraPropertyDictionary extraProperties = null)
+        public virtual async Task ConsumeAsync(GiftCard giftCard, Guid? userId,
+            ExtraPropertyDictionary extraProperties = null)
         {
             var template = await _giftCardTemplateRepository.GetAsync(giftCard.GiftCardTemplateId);
-            
+
             giftCard.Consume(_clock, userId, extraProperties);
 
             await _repository.UpdateAsync(giftCard, true);
 
-            _unitOfWorkManager.Current.OnCompleted(async () => await _distributedEventBus.PublishAsync(
+            await _distributedEventBus.PublishAsync(
                 new GiftCardConsumedEto
                 {
                     GiftCardTemplateName = template.Name,
@@ -61,7 +62,7 @@ namespace EasyAbp.GiftCardManagement.GiftCards
                     GiftCardCode = giftCard.Code,
                     GiftCardExtraProperties = giftCard.ExtraProperties,
                     ConsumptionUserId = userId
-                }));
+                });
         }
     }
 }
