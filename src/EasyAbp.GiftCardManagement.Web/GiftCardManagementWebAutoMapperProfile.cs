@@ -20,7 +20,7 @@ namespace EasyAbp.GiftCardManagement.Web
             CreateMap<GiftCardTemplateDto, CreateUpdateGiftCardTemplateViewModel>().ForMember(
                 model => model.ExtraProperties,
                 opt => opt.MapFrom(src => JsonConvert.SerializeObject(src.ExtraProperties)));
-            CreateMap<CreateUpdateGiftCardTemplateViewModel, CreateUpdateGiftCardTemplateDto>(MemberList.Source)
+            CreateMap<CreateUpdateGiftCardTemplateViewModel, CreateUpdateGiftCardTemplateDto>()
                 .ForMember(dto => dto.ExtraProperties,
                     opt => opt.MapFrom(src =>
                         JsonConvert.DeserializeObject<ExtraPropertyDictionary>(src.ExtraProperties)));
