@@ -8,10 +8,6 @@
 
 An abp application module where you can create gift cards and your app user can use them to exchange something.
 
-## Online Demo
-
-We have launched an online demo for this module: [https://giftcard.samples.easyabp.io](https://giftcard.samples.easyabp.io)
-
 ## Installation
 
 1. Install the following NuGet packages. ([see how](https://github.com/EasyAbp/EasyAbpGuide/blob/master/docs/How-To.md#add-nuget-packages))
