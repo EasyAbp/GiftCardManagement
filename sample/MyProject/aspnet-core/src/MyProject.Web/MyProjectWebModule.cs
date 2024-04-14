@@ -90,7 +90,7 @@ namespace MyProject.Web
             ConfigureAutoApiControllers();
             ConfigureSwaggerServices(context.Services);
             
-            Configure<AbpAspNetCoreMvcOptions>(options =>
+            PreConfigure<AbpAspNetCoreMvcOptions>(options =>
             {
             });
         }
@@ -167,7 +167,7 @@ namespace MyProject.Web
 
         private void ConfigureAutoApiControllers()
         {
-            Configure<AbpAspNetCoreMvcOptions>(options =>
+            PreConfigure<AbpAspNetCoreMvcOptions>(options =>
             {
                 options.ConventionalControllers.Create(typeof(MyProjectApplicationModule).Assembly);
             });
