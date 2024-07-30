@@ -1,9 +1,4 @@
-using System;
-using System.Threading.Tasks;
 using EasyAbp.GiftCardManagement.GiftCards;
-using EasyAbp.GiftCardManagement.GiftCards.Dtos;
-using EasyAbp.GiftCardManagement.GiftCardTemplates;
-using EasyAbp.GiftCardManagement.GiftCardTemplates.Dtos;
 using EasyAbp.GiftCardManagement.Web.Pages.GiftCardManagement.GiftCards.GiftCard.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
