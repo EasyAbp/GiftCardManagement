@@ -7,8 +7,7 @@
 @inject IHtmlLocalizer<GiftCardManagementResource> L
 @inject IPageLayout PageLayout
 @{
-    PageLayout.Content.Title = L["GiftCard"].Value;
-    PageLayout.Content.BreadCrumb.Add(L["Menu:GiftCardConsumption"].Value);
+    PageLayout.Content.Title = L["Menu:GiftCardConsumption"].Value;
     PageLayout.Content.MenuItemName = "EasyAbpGiftCardManagementGiftCardConsumption";
 }
 
@@ -22,13 +21,6 @@
 }
 
 <abp-card>
-    <abp-card-header>
-        <abp-row>
-            <abp-column size-md="_6">
-                <abp-card-title>@L["ConsumeGiftCard"]</abp-card-title>
-            </abp-column>
-        </abp-row>
-    </abp-card-header>
     <abp-card-body>
         <abp-dynamic-form abp-model="ConsumeGiftCard" data-ajaxForm="true" asp-page="Consume">
             <abp-form-content />

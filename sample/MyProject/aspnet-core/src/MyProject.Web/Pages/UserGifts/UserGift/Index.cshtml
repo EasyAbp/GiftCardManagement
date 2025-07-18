@@ -8,7 +8,6 @@
 @inject IPageLayout PageLayout
 @{
     PageLayout.Content.Title = L["UserGift"].Value;
-    PageLayout.Content.BreadCrumb.Add(L["Menu:UserGift"].Value);
     PageLayout.Content.MenuItemName = "UserGift";
 }
 
@@ -20,21 +19,16 @@
 {
     <abp-style src="/Pages/UserGifts/UserGift/index.css"/>
 }
+@section content_toolbar
+{
+    <abp-button id="NewUserGiftButton"
+            text="@L["CreateUserGift"].Value"
+            icon="plus"
+            size="Small"
+            button-type="Primary" />
+}
 
 <abp-card>
-    <abp-card-header>
-        <abp-row>
-            <abp-column size-md="_6">
-                <abp-card-title>@L["UserGift"]</abp-card-title>
-            </abp-column>
-            <abp-column size-md="_6" class="text-end">
-                <abp-button id="NewUserGiftButton"
-                            text="@L["CreateUserGift"].Value"
-                            icon="plus"
-                            button-type="Primary" />
-            </abp-column>
-        </abp-row>
-    </abp-card-header>
     <abp-card-body>
         <abp-table striped-rows="true" id="UserGiftTable" class="nowrap">
             <thead>
