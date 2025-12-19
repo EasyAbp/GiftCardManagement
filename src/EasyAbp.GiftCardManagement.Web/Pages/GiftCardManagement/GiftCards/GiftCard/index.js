@@ -49,7 +49,7 @@ $(function () {
             },
             { data: "code" },
             { data: "expiration" },
-            { data: "consumptionTime" },
+            { data: "consumptionTime", dataFormat: 'datetime' },
         ]
     }));
 

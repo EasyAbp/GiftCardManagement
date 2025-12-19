@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using EasyAbp.GiftCardManagement.Authorization;
 using EasyAbp.GiftCardManagement.GiftCardTemplates.Dtos;
+using EasyAbp.GiftCardManagement.Localization;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Entities;
@@ -23,6 +24,9 @@ namespace EasyAbp.GiftCardManagement.GiftCardTemplates
         public GiftCardTemplateAppService(IGiftCardTemplateRepository repository) : base(repository)
         {
             _repository = repository;
+
+            LocalizationResource = typeof(GiftCardManagementResource);
+            ObjectMapperContext = typeof(GiftCardManagementApplicationModule);
         }
 
         protected override async Task<IQueryable<GiftCardTemplate>> CreateFilteredQueryAsync(

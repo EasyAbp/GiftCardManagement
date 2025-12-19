@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using EasyAbp.GiftCardManagement.Authorization;
 using EasyAbp.GiftCardManagement.GiftCards.Dtos;
 using EasyAbp.GiftCardManagement.GiftCardTemplates;
+using EasyAbp.GiftCardManagement.Localization;
 using Microsoft.AspNetCore.Authorization;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
@@ -36,6 +37,9 @@ namespace EasyAbp.GiftCardManagement.GiftCards
             _giftCardPasswordHashProvider = giftCardPasswordHashProvider;
             _giftCardManager = giftCardManager;
             _giftCardTemplateRepository = giftCardTemplateRepository;
+
+            LocalizationResource = typeof(GiftCardManagementResource);
+            ObjectMapperContext = typeof(GiftCardManagementApplicationModule);
         }
 
         protected override async Task<IQueryable<GiftCard>> CreateFilteredQueryAsync(GetGiftCardListDto input)
