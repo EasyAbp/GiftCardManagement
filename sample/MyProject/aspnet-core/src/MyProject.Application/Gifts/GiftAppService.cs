@@ -20,5 +20,15 @@ namespace MyProject.Gifts
         {
             return ObjectMapper.Map<Gift, GiftDto>(await _repository.GetAsync(name));
         }
+
+        protected override Gift MapToEntity(CreateUpdateGiftDto createInput)
+        {
+            return new Gift(GuidGenerator.Create(), createInput.Name);
+        }
+
+        protected override void MapToEntity(CreateUpdateGiftDto input, Gift entity)
+        {
+            entity.Update(input.Name);
+        }
     }
 }

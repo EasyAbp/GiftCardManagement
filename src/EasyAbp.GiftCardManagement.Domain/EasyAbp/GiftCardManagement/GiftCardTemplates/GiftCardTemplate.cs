@@ -38,5 +38,20 @@ namespace EasyAbp.GiftCardManagement.GiftCardTemplates
             TenantAllowed = tenantAllowed;
             AnonymousConsumptionAllowed = anonymousConsumptionAllowed;
         }
+
+        public void Update(
+            [NotNull] string name,
+            [NotNull] string displayName,
+            [CanBeNull] string description,
+            bool tenantAllowed,
+            bool anonymousConsumptionAllowed
+        )
+        {
+            Name = name;
+            DisplayName = displayName;
+            Description = description;
+            TenantAllowed = tenantAllowed;
+            AnonymousConsumptionAllowed = anonymousConsumptionAllowed;
+        }
     }
 }

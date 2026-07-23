@@ -81,7 +81,7 @@ namespace EasyAbp.GiftCardManagement.GiftCards
 
         protected override void MapToEntity(UpdateGiftCardDto input, GiftCard entity)
         {
-            base.MapToEntity(input, entity);
+            entity.Update(input.GiftCardTemplateId, input.Code, input.Expiration);
 
             if (!input.Password.IsNullOrWhiteSpace())
             {

@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\..\src\EasyAbp.GiftCardManagement.Application\EasyAbp.GiftCardManagement.Application.csproj" />
+    <PackageReference Include="Volo.Abp.Mapperly" Version="$(AbpVersion)" />
     <PackageReference Include="Volo.Abp.Account.Application" Version="$(AbpVersion)" />
     <PackageReference Include="Volo.Abp.Identity.Application" Version="$(AbpVersion)" />
     <PackageReference Include="Volo.Abp.PermissionManagement.Application" Version="$(AbpVersion)" />

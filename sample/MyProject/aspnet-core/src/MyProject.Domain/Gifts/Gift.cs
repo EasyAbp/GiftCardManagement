@@ -18,5 +18,10 @@ namespace MyProject.Gifts
         {
             Name = name;
         }
+
+        public void Update(string name)
+        {
+            Name = name;
+        }
     }
 }

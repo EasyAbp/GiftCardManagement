@@ -14,5 +14,15 @@ namespace MyProject.UserGifts
         {
             _repository = repository;
         }
+
+        protected override UserGift MapToEntity(CreateUpdateUserGiftDto createInput)
+        {
+            return new UserGift(GuidGenerator.Create(), createInput.UserId, createInput.GiftId);
+        }
+
+        protected override void MapToEntity(CreateUpdateUserGiftDto input, UserGift entity)
+        {
+            entity.Update(input.UserId, input.GiftId);
+        }
     }
 }

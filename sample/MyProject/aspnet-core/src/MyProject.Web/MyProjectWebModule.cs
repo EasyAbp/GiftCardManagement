@@ -27,7 +27,7 @@ using Volo.Abp.AspNetCore.Mvc.UI.Theme.LeptonXLite;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared;
 using Volo.Abp.AspNetCore.Serilog;
 using Volo.Abp.Autofac;
-using Volo.Abp.AutoMapper;
+using Volo.Abp.Mapperly;
 using Volo.Abp.FeatureManagement;
 using Volo.Abp.Identity.Web;
 using Volo.Abp.Localization;
@@ -57,7 +57,8 @@ namespace MyProject.Web
         typeof(AbpSettingManagementWebModule),
         typeof(AbpSwashbuckleModule),
         typeof(AbpAspNetCoreSerilogModule),
-        typeof(GiftCardManagementWebModule)
+        typeof(GiftCardManagementWebModule),
+        typeof(AbpMapperlyModule)
         )]
     public class MyProjectWebModule : AbpModule
     {
@@ -83,7 +84,7 @@ namespace MyProject.Web
 
             ConfigureUrls(configuration);
             ConfigureAuthentication(context, configuration);
-            ConfigureAutoMapper();
+            context.Services.AddMapperlyObjectMapper<MyProjectWebModule>();
             ConfigureVirtualFileSystem(hostingEnvironment);
             ConfigureLocalizationServices();
             ConfigureNavigationServices();
@@ -112,15 +113,6 @@ namespace MyProject.Web
                     options.RequireHttpsMetadata = false;
                     options.Audience = "MyProject";
                 });
-        }
-
-        private void ConfigureAutoMapper()
-        {
-            Configure<AbpAutoMapperOptions>(options =>
-            {
-                options.AddMaps<MyProjectWebModule>();
-
-            });
         }
 
         private void ConfigureVirtualFileSystem(IWebHostEnvironment hostingEnvironment)

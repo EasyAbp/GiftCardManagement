@@ -46,6 +46,13 @@ namespace EasyAbp.GiftCardManagement.GiftCards
             Expiration = expiration;
         }
 
+        public void Update(Guid giftCardTemplateId, [NotNull] string code, DateTime? expiration)
+        {
+            GiftCardTemplateId = giftCardTemplateId;
+            Code = code;
+            Expiration = expiration;
+        }
+
         public void Consume(IClock clock, Guid? userId, ExtraPropertyDictionary extraProperties = null)
         {
             CheckUsable(clock);

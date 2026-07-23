@@ -48,5 +48,28 @@ namespace EasyAbp.GiftCardManagement.GiftCardTemplates
 
             return template;
         }
+
+        protected override GiftCardTemplate MapToEntity(CreateUpdateGiftCardTemplateDto createInput)
+        {
+            return new GiftCardTemplate(
+                GuidGenerator.Create(),
+                createInput.Name,
+                createInput.DisplayName,
+                createInput.Description,
+                createInput.TenantAllowed,
+                createInput.AnonymousConsumptionAllowed
+            );
+        }
+
+        protected override void MapToEntity(CreateUpdateGiftCardTemplateDto input, GiftCardTemplate entity)
+        {
+            entity.Update(
+                input.Name,
+                input.DisplayName,
+                input.Description,
+                input.TenantAllowed,
+                input.AnonymousConsumptionAllowed
+            );
+        }
     }
 }
