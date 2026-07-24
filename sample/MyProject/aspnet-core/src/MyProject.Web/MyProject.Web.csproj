@@ -52,6 +52,7 @@
     <PackageReference Include="Volo.Abp.FeatureManagement.Web" Version="$(AbpVersion)" />
     <PackageReference Include="Volo.Abp.SettingManagement.Web" Version="$(AbpVersion)" />
     <PackageReference Include="Volo.Abp.Swashbuckle" Version="$(AbpVersion)" />
+    <PackageReference Include="Volo.Abp.Mapperly" Version="$(AbpVersion)" />
   </ItemGroup>
 
 </Project>

@@ -4,7 +4,7 @@ using EasyAbp.GiftCardManagement.Localization;
 using EasyAbp.GiftCardManagement.Web.Menus;
 using Volo.Abp.AspNetCore.Mvc.Localization;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared;
-using Volo.Abp.AutoMapper;
+using Volo.Abp.Mapperly;
 using Volo.Abp.Modularity;
 using Volo.Abp.UI.Navigation;
 using Volo.Abp.VirtualFileSystem;
@@ -14,7 +14,7 @@ namespace EasyAbp.GiftCardManagement.Web
     [DependsOn(
         typeof(GiftCardManagementApplicationContractsModule),
         typeof(AbpAspNetCoreMvcUiThemeSharedModule),
-        typeof(AbpAutoMapperModule)
+        typeof(AbpMapperlyModule)
         )]
     public class GiftCardManagementWebModule : AbpModule
     {
@@ -47,11 +47,7 @@ namespace EasyAbp.GiftCardManagement.Web
                 options.FileSets.AddEmbedded<GiftCardManagementWebModule>();
             });
 
-            context.Services.AddAutoMapperObjectMapper<GiftCardManagementWebModule>();
-            Configure<AbpAutoMapperOptions>(options =>
-            {
-                options.AddMaps<GiftCardManagementWebModule>(validate: true);
-            });
+            context.Services.AddMapperlyObjectMapper<GiftCardManagementWebModule>();
 
             Configure<RazorPagesOptions>(options =>
             {

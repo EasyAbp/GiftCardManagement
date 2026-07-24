@@ -22,5 +22,11 @@ namespace MyProject.UserGifts
             UserId = userId;
             GiftId = giftId;
         }
+
+        public void Update(Guid userId, Guid giftId)
+        {
+            UserId = userId;
+            GiftId = giftId;
+        }
     }
 }
